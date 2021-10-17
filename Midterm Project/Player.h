@@ -4,9 +4,13 @@ using namespace std;
 
 class player {
 private:
+	//Player Name
 	string Name;
+	//Max hp of player
 	int maxHealth;
+	//Current HP of player
 	int healthPoints;
+	//Base AD of the player
 	int attackDamage;
 public:
 	//Default Constructor
@@ -25,7 +29,9 @@ public:
 	void setDMG(int input);
 	
 
+	//Modifies player's HP with the input value
 	void modHealth(int input);
+	//Modifies player's base damage with an input value
 	void modDamage(int input);
 
 	friend ostream& operator <<(ostream& os, const player& p);

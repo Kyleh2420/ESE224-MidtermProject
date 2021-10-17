@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Stony Brook University\2 - Sophomore Year\ESE 224\Midterm Project\ESE224-MidtermProject\src\enemy.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="D:\Stony Brook University\2 - Sophomore Year\ESE 224\Midterm Project\ESE224-MidtermProject\include\enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Stony Brook University\2 - Sophomore Year\ESE 224\Midterm Project\ESE224-MidtermProject\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{0470BBC9-51C4-391F-9287-5C4ABCB64E9B}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F6029DF7-5FA0-3687-B977-F797298D7EAF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

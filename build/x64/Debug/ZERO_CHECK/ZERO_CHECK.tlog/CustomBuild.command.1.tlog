@@ -1,0 +1,10 @@
+^D:\STONY BROOK UNIVERSITY\2 - SOPHOMORE YEAR\ESE 224\MIDTERM PROJECT\ESE224-MIDTERMPROJECT\BUILD\CMAKEFILES\0B0312FB920542E49253C9247E5EC17A\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files (x86)\Microsoft Visual Studio\2022\BuildTools\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" "-SD:/Stony Brook University/2 - Sophomore Year/ESE 224/Midterm Project/ESE224-MidtermProject" "-BD:/Stony Brook University/2 - Sophomore Year/ESE 224/Midterm Project/ESE224-MidtermProject/build" --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file "D:/Stony Brook University/2 - Sophomore Year/ESE 224/Midterm Project/ESE224-MidtermProject/build/MidtermProject.sln"
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

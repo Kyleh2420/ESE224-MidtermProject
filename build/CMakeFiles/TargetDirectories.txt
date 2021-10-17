@@ -1,0 +1,4 @@
+D:/Stony Brook University/2 - Sophomore Year/ESE 224/Midterm Project/ESE224-MidtermProject/build/CMakeFiles/enemy.dir
+D:/Stony Brook University/2 - Sophomore Year/ESE 224/Midterm Project/ESE224-MidtermProject/build/CMakeFiles/midterm.dir
+D:/Stony Brook University/2 - Sophomore Year/ESE 224/Midterm Project/ESE224-MidtermProject/build/CMakeFiles/ALL_BUILD.dir
+D:/Stony Brook University/2 - Sophomore Year/ESE 224/Midterm Project/ESE224-MidtermProject/build/CMakeFiles/ZERO_CHECK.dir

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="D:\Stony Brook University\2 - Sophomore Year\ESE 224\Midterm Project\ESE224-MidtermProject\src\game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="D:\Stony Brook University\2 - Sophomore Year\ESE 224\Midterm Project\ESE224-MidtermProject\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{F6029DF7-5FA0-3687-B977-F797298D7EAF}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

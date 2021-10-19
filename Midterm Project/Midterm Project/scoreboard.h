@@ -21,11 +21,11 @@ class scoreboard {
         scoreboard();
         
         //Setters!
-        void setName(string);
-        void setScore(int);
-        void setDiff(string d);
-        void setDiffMod(int);
-        void setFloor(int);
+        void setName(string input);
+        void setScore(int input);
+        void setDiff(string input);
+        void setDiffMod(int input);
+        void setFloor(int input);
 
         //Getters!
         string getName();

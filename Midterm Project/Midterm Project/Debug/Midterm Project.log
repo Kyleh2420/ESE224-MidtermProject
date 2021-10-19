@@ -1,4 +1,7 @@
 ﻿  enemy.cpp
+  fileOperations.cpp
   main.cpp
+  scoreboard.cpp
+  weapon.cpp
   Generating Code...
   Midterm Project.vcxproj -> D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Debug\Midterm Project.exe

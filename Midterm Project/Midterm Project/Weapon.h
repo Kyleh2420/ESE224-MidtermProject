@@ -13,6 +13,6 @@ public:
 	void setItem(string);
 
 	string getItem();
-	int getDMH();
+	int getDMG();
 };
 

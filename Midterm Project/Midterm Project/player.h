@@ -5,7 +5,7 @@ using namespace std;
 class player {
 private:
 	//Player Name
-	string Name;
+	string name;
 	//Max hp of player
 	int maxHealth;
 	//Current HP of player

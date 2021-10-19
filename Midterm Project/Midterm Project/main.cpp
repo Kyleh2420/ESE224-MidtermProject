@@ -7,5 +7,7 @@ using namespace std;
 
 
 int main() {
-	cout << "Hello world" << endl;
+	player p1;
+	enemy Alex("Alex", 30, 30, 5, 1);
+	cout << Alex << endl;
 }

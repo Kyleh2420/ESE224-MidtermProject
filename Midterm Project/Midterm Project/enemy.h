@@ -17,11 +17,13 @@ private:
 public:
 	//Default constructor
 	enemy();
-	enemy(string n, int max, int hp, int ad);
+	//Enemy Constructor. Enter Name, MaxHP, hpCurrent, damage, and level
+	enemy(string n, int max, int hp, int ad, int lvl);
 
 	//Getters!
 	string getName();
 	int getMaxHP();
+	int getHP();
 	int getDMG();
 	int getLvl();
 
@@ -36,6 +38,8 @@ public:
 	void modHealth(int input);
 	void modDamage(int input);
 
+	//Example Usage: 
+	//cout << enemyName << endl;
 	friend ostream& operator <<(ostream& os, const enemy& e);
 };
 

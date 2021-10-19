@@ -12,6 +12,7 @@ You are a skeleton who has been condemned to the depths of hell. However, hell j
 In the beginning, the user will choose from 3 difficulty multipliers, easy medium or hard. 
 
 There are 4 floors that the user has to traverse though. Each floor has different enemies and weapon selections, with each having higher values as the floor changes. 
+
 To progress though each floor, you take a step. 25 steps = 1 floor. Each step has the possibility of resulting in either a random enemy encounter or a random event. There will be 3-4 enemy encounters per floor, randomly dispersed throughout the level, and 1-2 random events strewn throughout the level.
 ### Level Design
 There are 4 floors to this game.

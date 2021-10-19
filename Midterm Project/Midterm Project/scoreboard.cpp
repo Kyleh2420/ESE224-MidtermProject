@@ -40,3 +40,19 @@ int scoreboard::getDiffMod() {
 int scoreboard::getFloor() {
     return sbFloor;
 }
+
+
+void scoreboard::addScore(int input) {
+    sbScore += input;
+}
+
+void scoreboard::sbOut() {
+    cout << "\nScoreboard Name: " << sbName
+        << "\nScore: " << sbScore
+        << "\nsbDifficulty: " << sbDifficulty
+        << "\nFloor: " << sbFloor << endl;
+}
+
+ostream& operator <<(ostream& os, const scoreboard& p) {
+
+}

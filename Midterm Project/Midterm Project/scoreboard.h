@@ -34,7 +34,7 @@ class scoreboard {
         int getDiffMod();
         int getFloor();
 
-        void addScore(int);
+        void addScore(int input);
 
         //Print scoreboard
         void sbOut();

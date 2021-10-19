@@ -3,7 +3,7 @@
 #include <iostream>
 using namespace std;
 
-class Weapon {
+class weapon {
 private:
 	string wItem;
 	int wDamage;

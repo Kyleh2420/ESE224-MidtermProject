@@ -1,6 +1,8 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include "scoreboard.h"
+#include "player.h"
 using namespace std;
 
 class fileOperations {

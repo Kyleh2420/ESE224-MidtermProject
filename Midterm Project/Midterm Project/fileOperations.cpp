@@ -1,17 +1,43 @@
 #include "fileOperations.h"
 
-void fileOperations::save2File(player&) {
+//This class will handle the opening, saving, and closing of the player file.
+void fileOperations::save2File(player& input) {
+    pmyFile.open(pFileName);
+    if (pmyFile.fail()) {
+        cerr << "Error saving the file! Please try again!" << endl;
+        exit(1);
+    }
+    pmyFile << input.getName() << "\n"
+            << input.getMaxHP() << "\n"
+            << input.getHP() << "\n"
+            << input.getDMG() << endl;
+    closeFile();
 
 }
-void fileOperations::save2File(scoreboard&) {
+void fileOperations::save2File(scoreboard& input) {
+    sb_myFile.open(sbFileName);
+    if (sb_myFile.fail()) {
+        cerr << "Error saving the file! Please try again!" << endl;
+        exit(1);
+    }
+    input.sbOut();
+    closeFile();
+
+
 }
 
-void fileOperations::chooseFile(scoreboard&, player&) {
+void fileOperations::chooseFile(scoreboard& s, player& p) {
 
 }
 void fileOperations::closeFile() {
-
+    sb_myFile.close();
+    pmyFile.close();
 }
 void fileOperations::scoreRank() {
 
+}
+
+//Accepts cin as the arguement and sets the player savefile name
+void fileOperations::setPName(istream& in) {
+    in >> pFileName;
 }

@@ -27,4 +27,8 @@ class fileOperations {
         void closeFile();
         //Output scores from all scoreboards
         void scoreRank();
+
+
+        //Setting of something
+        void setPName(istream& in);
 };

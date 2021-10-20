@@ -3,9 +3,9 @@
 //Constructors
 player::player() {
     name = "";
-    maxHealth = 0;
-    healthPoints = 0;
-    attackDamage = 0;
+    maxHealth = 10;
+    healthPoints = 10;
+    attackDamage = 2;
 }
 
 //Getters
@@ -27,8 +27,8 @@ int player::getDMG() {
 
 
 //Setters!
-void player::setName(string input) {
-    name = input;
+void player::setName(istream& in) {
+    in >> name;
 }
 void player::setMaxHP(int input) {
     maxHealth = input;

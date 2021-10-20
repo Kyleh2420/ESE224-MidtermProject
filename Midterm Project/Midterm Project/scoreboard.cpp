@@ -54,5 +54,5 @@ void scoreboard::sbOut() {
 }
 
 ostream& operator <<(ostream& os, const scoreboard& p) {
-
+    return os;
 }

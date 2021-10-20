@@ -23,7 +23,8 @@ public:
 	int getDMG();
 
 	//Setters!
-	void setName(string input);
+	//Accepts cin as the arguement. Sets the player name inside the player save file
+	void setName(istream& in);
 	void setMaxHP(int input);
 	void setHP(int input);
 	void setDMG(int input);

@@ -26,3 +26,6 @@ Floor 2 consists of 3 weak enemies with two random events.
 Floor 3 consists of 2 strong enemies with two random events.
 #### Floor 4
 Floor 4 consists of 4 strong enemies with three random events.
+
+## File Operations
+In the file operations class, we create 2 different files. The player file will store all information about the current game, as well as offer a way to load a game from a save file.

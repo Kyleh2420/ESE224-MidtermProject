@@ -52,7 +52,9 @@ int main() {
 			}
     }
 	cout << "Now entering Game Portion";
-
+	//For some reason, when running the above, we won't be able to save any files, no matter what.
+	//I personally am confused as to why we can't open files.
+	//Error originates from fileOperations.h. pmyFile.open(fileName).
 
 
 

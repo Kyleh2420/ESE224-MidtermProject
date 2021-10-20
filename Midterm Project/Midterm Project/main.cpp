@@ -23,13 +23,16 @@ void chooseWeapon(weapon[4][4], int, player&) {
 
 int main() {
 	player p1;
+	scoreboard test;
 	fileOperations files;
 
 	
     //The following will loop through the player's save options 
 	char selection;
     bool loop = true;
-        while (loop) {
+	//This should call save2file scoreboard
+	files.save2File(test);
+    while (loop) {
 			cout << "Would you like to create a new file or load a save file? "
 				<< "\nN - Create a new save file \nL - Load a save file \nYour answer: ";
 			cin >> selection;
@@ -39,7 +42,7 @@ int main() {
 					loop = false;
 					break;
 				case 'n':
-					cout << "Please enter a save file name: ";
+					cout << "Please enter a save file name wih a .txt extention: ";
 					files.setPName(cin);
 					cout << "Please enter your player name: ";
 					//Default values
@@ -62,6 +65,5 @@ int main() {
 	enemy Alex("Alex", 30, 30, 5, 1);
 	cout << Alex << endl;
 	weapon sword;
-	scoreboard test;
 
 }

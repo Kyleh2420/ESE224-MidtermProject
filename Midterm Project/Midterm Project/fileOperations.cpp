@@ -2,7 +2,7 @@
 
 //This class will handle the opening, saving, and closing of the player file.
 void fileOperations::save2File(player& input) {
-    pmyFile.open(pFileName);
+    pmyFile.open(pFileName, ios::out);
     if (pmyFile.fail()) {
         cerr << "Error saving the file! Please try again!" << endl;
         exit(1);
@@ -15,7 +15,8 @@ void fileOperations::save2File(player& input) {
 
 }
 void fileOperations::save2File(scoreboard& input) {
-    sb_myFile.open(sbFileName);
+    cout << "Testing124";
+    sb_myFile.open(sbFileName, ios::out);
     if (sb_myFile.fail()) {
         cerr << "Error saving the file! Please try again!" << endl;
         exit(1);

@@ -1,3 +1,8 @@
+# Current To Do List
+Solve File Saving problem, see main.cpp, lines 55-57
+
+
+
 # ESE224-MidtermProject
 
 Stony Brook University's ESE 224 Midterm Project

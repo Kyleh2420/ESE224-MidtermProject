@@ -5,7 +5,7 @@ Need to work on loading a file (Around line 41 of main.cpp)
 Work on the various floors
 * See floor psuedo code below. Then, implement the random events of take a step
 * This will also read lines from a file: Dev notes, interesting experiences, etc. See the game that Dangy showed.
-* Game: https://web.simple-mmo.com/
+* Reference Game: https://web.simple-mmo.com/
 ## Floor Psuedocode
 The floor system is going to work like this:
 1. When a new floor is loaded (switch case statement checking scoreboard's floor)

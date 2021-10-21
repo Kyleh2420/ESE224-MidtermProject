@@ -1,8 +1,8 @@
 # Current To Do List
-Need to understand how the scoreboard is going to work to keep track of things.
-New File ahs already been done (Need to set up scoreboard for new file)
-Need to work on loading a file (Around line 41 of main.cpp)
-Work on the various floors
+- [ ] Need to understand how the scoreboard is going to work to keep track of things.
+- [ ] New File has already been done (Need to set up scoreboard for new file)
+- [ ] Need to work on loading a file (Around line 41 of main.cpp)
+- [ ]Work on the various floors
 * See floor psuedo code below. Then, implement the random events of take a step
 * This will also read lines from a file: Dev notes, interesting experiences, etc. See the game that Dangy showed.
 * Reference Game: https://web.simple-mmo.com/

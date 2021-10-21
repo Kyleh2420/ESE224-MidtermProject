@@ -1,7 +1,8 @@
 #include <vector>
 using namespace std;
 
-class floor {
+
+class gameFloor {
     private:
         int floorLevel;
         //This vector will hold the floor setup(Which steps will have random encounters)
@@ -22,8 +23,8 @@ class floor {
     public:
         //Default constructor
         //Accepts floor level as an input, sets up and creates the floor.
-        //Handles random encounters
-        floor(int lvl);
+        //Handles random encounter generation
+        gameFloor(int floor);
         //The user takes a step.
         //The 
         void takeStep();

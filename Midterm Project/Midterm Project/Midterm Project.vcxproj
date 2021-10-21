@@ -21,6 +21,7 @@
   <ItemGroup>
     <ClCompile Include="enemy.cpp" />
     <ClCompile Include="fileOperations.cpp" />
+    <ClCompile Include="floor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="player.cpp" />
     <ClCompile Include="scoreboard.cpp" />
@@ -29,6 +30,7 @@
   <ItemGroup>
     <ClInclude Include="enemy.h" />
     <ClInclude Include="fileOperations.h" />
+    <ClInclude Include="floor.h" />
     <ClInclude Include="player.h" />
     <ClInclude Include="scoreboard.h" />
     <ClInclude Include="Weapon.h" />

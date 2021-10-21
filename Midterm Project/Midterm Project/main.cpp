@@ -1,6 +1,7 @@
 #include "enemy.h"
 #include "fileOperations.h"
 #include "Weapon.h"
+#include "floor.h"
 //player.h and scoreboard.h don't need to be called, since they are already called in fileOperations.h
 //If called again, it will result in a redefinition error
 using namespace std;
@@ -39,7 +40,6 @@ int main() {
 	scoreboard p1Scoreboard;
 	fileOperations files;
 
-	
     //The following will loop through the player's starting options 
 	//The User will select whether or not a new file is created or loaded.
 	//If a new file is created, it will Ask for the players name and difficulty, then save those to 
@@ -98,9 +98,10 @@ int main() {
 	cout << "Now entering Game Portion";
 
 
-
+	p1Scoreboard.setFloor(1);
 	//Game Portion of the code
-	enemy 
+	gameFloor test(p1Scoreboard.getFloor());
+
 	enemy Alex("Alex", 30, 30, 5, 1);
 	cout << Alex << endl;
 	weapon sword;

@@ -39,13 +39,13 @@ To progress though each floor, you take a step. 25 steps = 1 floor. Each step ha
 Each enemy you defeat will add to the scoreboard's points and enemycount. You must defeat at least 7 enemies (Collecting a new organ everytime).
 ### Level Design
 There are 4 floors to this game.
-#### Floor 1
+#### Floor 0
 Floor 1 consists of 2 weak enemies with one random events.
-#### Floor 2
+#### Floor 1
 Floor 2 consists of 3 weak enemies with two random events.
-#### Floor 3
+#### Floor 2
 Floor 3 consists of 2 strong enemies with two random events.
-#### Floor 4
+#### Floor 3
 Floor 4 consists of 4 strong enemies with three random events.
 
 ## File Operations

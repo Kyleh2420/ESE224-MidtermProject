@@ -3,9 +3,9 @@
 - [ ] New File has already been done (Need to set up scoreboard for new file)
 - [ ] Need to work on loading a file (Around line 41 of main.cpp)
 - [ ] Work on the various floors
-        - [ ] Floor Level Creation according to statistics
+        - [X] Floor Level Creation according to statistics
         - [ ] takeStep() function, which reads from a file a random list of possible outputs, including dev notes, character development, or character senses (Visual, smell, etc). See Reference game below
-        - [ ] Tracking current users position
+        - [X] Tracking current users position
 * See floor psuedo code below. Then, implement the random events of take a step
 * Reference Game: https://web.simple-mmo.com/
 
@@ -17,7 +17,10 @@
 * Kyle
   * Finished level creation (floor.h and floor.cpp), integrated random enemy encounters/events. 
     * gameFloor::gameFloor(level) constructor. The probability stats are taken from the private variabe floorSettings in floor.h. Probability is used to generate a vector, and then the vector is randomized.
-  * Next steps: Implement the takeStep function and track where the user is in the floor. Advance floor when reaching 25 steps.
+  * Next steps: Implement the takeStep function and track where the user is in the floor. Advance floor when reaching gameFloor.getTotalPos() (See floor.h) steps.
+* Kyle (Again)
+  * Implemented takeStep function to track where the user is in the floor. 
+  * Edited main.cpp to include the main game loop. The game loop will now automatically increment floors when the user has finished the previous floor (By way of taking steps), and recognizes when the top floor is completed.
 
 # ESE224-MidtermProject
 
@@ -59,6 +62,7 @@ The floor system is going to work like this:
         ~~* 2 - Good random encounter. Ex: Player finds a treat or something and gains an extra HP.~~
         ~~* 3 - Bad random encounter. Ex: Player trips over a rock and loses 1 hp.~~ 
         * 2 - Random encounter. Could be good or bad, will be generated randomly
+        * 3 - Floor finish
 
 ## File Operations
 In the file operations class, we create 2 different files. The player file will store all information about the current game, as well as offer a way to load a game from a save file.

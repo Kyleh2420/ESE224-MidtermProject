@@ -98,7 +98,35 @@ int main() {
     }
 	cout << "Now entering Game Portion";
 
-p1Scoreboard.setFloor(1);
+	p1Scoreboard.setFloor(0);
+	loop = true;
+	//While we are in the game
+	//Each floor is a repeat with different probabilities, therefore this code reuses the same thing for every floor
+	while (loop) {
+		//Creates a new class playGame with the current floor
+		gameFloor playGame(p1Scoreboard.getFloor());
+		cout << "The current floor is: " << p1Scoreboard.getFloor() << endl;
+		//We stay in this while loop as long as we are still on the same floor
+		while (playGame.getCurrentPos() < playGame.getTotalPos()) {
+			cout << "The current position is " << playGame.getCurrentPos() << "/" << playGame.getTotalPos() << endl;
+			playGame.takeStep();
+
+		}
+
+
+
+
+		//Increases the floor count by 1
+		p1Scoreboard.setFloor(p1Scoreboard.getFloor()+1);
+		//If the user has reached the last floor, we can confirm the user has completed the game!
+		if (p1Scoreboard.getFloor() == 4) {
+			loop = false;
+			cout << "Congrats, you've passed the game!"<< endl;
+			break;
+		}
+		
+
+	}
 	gameFloor test(p1Scoreboard.getFloor());
 	//Game Portion of the code
 	enemy Alex("Alex", 30, 30, 5, 1);

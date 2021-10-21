@@ -1,6 +1,9 @@
 #include "floor.h"
 #include "scoreboard.h"
 #include <iostream>
+#include <algorithm> //For the std::shuffle
+#include <random> //For std::default_random_engine
+#include <chrono> //For std::chrono::system_clock
 using namespace std;
 
 
@@ -23,17 +26,23 @@ gameFloor::gameFloor(int inpLevel) {
             else {
                 floorSetup.push_back(0);
             }
-
-
         }
-        else {
+        else { //That floor doesn't exist
             cerr << "Floor level has passed limit!" << endl;
             exit(1);
         }
     }
+    //Output for testing
     for (int i = 0; i < floorSetup.size(); i++) {
         cout << floorSetup[i] << endl;
     }
+    unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
+    cout << "Shuffled" << endl;
+    shuffle(floorSetup.begin(), floorSetup.end(), default_random_engine(seed));
+    for (int i = 0; i < floorSetup.size(); i++) {
+        cout << floorSetup[i] << endl;
+    }
+
 }
 
 void gameFloor::takeStep() {

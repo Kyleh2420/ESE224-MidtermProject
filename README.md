@@ -57,3 +57,7 @@ In the file operations class, we create 2 different files. The player file will 
 * William 
   * changed how scoreboard works. Linked it to the player's save file.
   * Also changed how file creation works - user no longer needs to add .txt when creating a new file.
+* Kyle
+  * Finished level creation (floor.h and floor.cpp), integrated random enemy encounters/events. 
+    * gameFloor::gameFloor(level) constructor. The probability stats are taken from the private variabe floorSettings in floor.h. Probability is used to generate a vector, and then the vector is randomized.
+  * Next steps: Implement the takeStep function and track where the user is in the floor. Advance floor when reaching 25 steps.

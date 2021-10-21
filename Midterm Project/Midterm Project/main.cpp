@@ -40,6 +40,7 @@ int main() {
 	scoreboard p1Scoreboard;
 	fileOperations files;
 
+	
     //The following will loop through the player's starting options 
 	//The User will select whether or not a new file is created or loaded.
 	//If a new file is created, it will Ask for the players name and difficulty, then save those to 
@@ -51,14 +52,12 @@ int main() {
 			cout << "Would you like to create a new file or load a save file? "
 				<< "\nN - Create a new save file \nL - Load a save file \nYour answer: ";
 			cin >> selection;
-			selection = tolower(selection);
+			selection = tolower(selection); //Lowercase everything to limit the number of cases
 			switch(selection) {
-				case 'l':	//Ask user for save name. IDK what file type(prob .dat, right?) we are saving in but could we concatenate the file type extension to the user input?
+				case 'l':
 					loop = false;
 					break;
-				case 'n':
-					cout << "Please enter a save file name: ";
-					files.setPName(cin);
+				case 'n': //New File is to be created. We must gather information about the user.
 					cout << "Please enter your player name: ";
 					p1.setName(cin);
 					while (loop) {
@@ -86,6 +85,10 @@ int main() {
 								break;
 						}
 					}
+					cout << "Please enter a save file name wih a .txt extention: ";
+					files.setPName(cin);
+					cout << "Please enter a scoreboard file name with a .txt extention: ";
+					//p1Scoreboard.setName(cin);
 					files.save2File(p1);
 					files.save2File(p1Scoreboard);
 				break;
@@ -95,11 +98,9 @@ int main() {
     }
 	cout << "Now entering Game Portion";
 
-
-	p1Scoreboard.setFloor(1);
-	//Game Portion of the code
+p1Scoreboard.setFloor(1);
 	gameFloor test(p1Scoreboard.getFloor());
-
+	//Game Portion of the code
 	enemy Alex("Alex", 30, 30, 5, 1);
 	cout << Alex << endl;
 	weapon sword;

@@ -8,10 +8,14 @@ private:
 	string wItem;
 	int wDamage;
 public:
+	//Default constructor
 	weapon();
+	//Weapon constructor
 	weapon(string i, int d);
+	//Setters!
 	void setItem(string);
 
+	//Getters!
 	string getItem();
 	int getDMG();
 };

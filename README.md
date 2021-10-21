@@ -2,23 +2,22 @@
 - [ ] Need to understand how the scoreboard is going to work to keep track of things.
 - [ ] New File has already been done (Need to set up scoreboard for new file)
 - [ ] Need to work on loading a file (Around line 41 of main.cpp)
-- [ ]Work on the various floors
+- [ ] Work on the various floors
+        - [ ] Floor Level Creation according to statistics
+        - [ ] takeStep() function, which reads from a file a random list of possible outputs, including dev notes, character development, or character senses (Visual, smell, etc). See Reference game below
+        - [ ] Tracking current users position
 * See floor psuedo code below. Then, implement the random events of take a step
-* This will also read lines from a file: Dev notes, interesting experiences, etc. See the game that Dangy showed.
 * Reference Game: https://web.simple-mmo.com/
-## Floor Psuedocode
-The floor system is going to work like this:
-1. When a new floor is loaded (switch case statement checking scoreboard's floor)
-2.    Create a vector with a list of 25 numbers from 0-3, loaded by specific values set by the current floor level. 
-        * Use std::random_shuffle to shuffle the vector. This becomes the random occurances that happen when the user steps forward.
-2.    Randomly generate a list of 25 numbers from 0-3. This will be the random encounters that happen when a user steps forward. 
-        * 0 - Nothing happens
-        * 1 - Enemy Encounter. Enter Battle scene
-        ~~* 2 - Good random encounter. Ex: Player finds a treat or something and gains an extra HP.~~
-        ~~* 3 - Bad random encounter. Ex: Player trips over a rock and loses 1 hp.~~ 
-        * 2 - Random encounter. Could be good or bad, will be generated randomly
 
-
+# JOURNAL
+10/21
+* William 
+  * changed how scoreboard works. Linked it to the player's save file.
+  * Also changed how file creation works - user no longer needs to add .txt when creating a new file.
+* Kyle
+  * Finished level creation (floor.h and floor.cpp), integrated random enemy encounters/events. 
+    * gameFloor::gameFloor(level) constructor. The probability stats are taken from the private variabe floorSettings in floor.h. Probability is used to generate a vector, and then the vector is randomized.
+  * Next steps: Implement the takeStep function and track where the user is in the floor. Advance floor when reaching 25 steps.
 
 # ESE224-MidtermProject
 
@@ -49,15 +48,19 @@ Floor 3 consists of 2 strong enemies with two random events.
 #### Floor 3
 Floor 4 consists of 4 strong enemies with three random events.
 
+## Floor Psuedocode
+The floor system is going to work like this:
+1. When a new floor is loaded (switch case statement checking scoreboard's floor)
+2.    Create a vector with a list of 25 numbers from 0-3, loaded by specific values set by the current floor level. 
+        * Use std::random_shuffle to shuffle the vector. This becomes the random occurances that happen when the user steps forward.
+2.    Randomly generate a list of 25 numbers from 0-3. This will be the random encounters that happen when a user steps forward. 
+        * 0 - Nothing happens
+        * 1 - Enemy Encounter. Enter Battle scene
+        ~~* 2 - Good random encounter. Ex: Player finds a treat or something and gains an extra HP.~~
+        ~~* 3 - Bad random encounter. Ex: Player trips over a rock and loses 1 hp.~~ 
+        * 2 - Random encounter. Could be good or bad, will be generated randomly
+
 ## File Operations
 In the file operations class, we create 2 different files. The player file will store all information about the current game, as well as offer a way to load a game from a save file.
 
-# JOURNAL
-10/21
-* William 
-  * changed how scoreboard works. Linked it to the player's save file.
-  * Also changed how file creation works - user no longer needs to add .txt when creating a new file.
-* Kyle
-  * Finished level creation (floor.h and floor.cpp), integrated random enemy encounters/events. 
-    * gameFloor::gameFloor(level) constructor. The probability stats are taken from the private variabe floorSettings in floor.h. Probability is used to generate a vector, and then the vector is randomized.
-  * Next steps: Implement the takeStep function and track where the user is in the floor. Advance floor when reaching 25 steps.
+

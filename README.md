@@ -1,7 +1,14 @@
 # Current To Do List
+Need to understand how the scoreboard is going to work to keep track of things.
 New File ahs already been done (Need to set up scoreboard for new file)
 Need to work on loading a file (Around line 41 of main.cpp)
-Work on floor 1
+Work on the various floors
+## Floor Psuedocode
+The floor system is going to work like this:
+    * When a new floor is loaded (switch case statement checking scoreboard's floor)
+    *    randomly generate a list of 25 numbers from 0-3. This will be the random encounters that happen when a user steps forward. 
+    *        This needs to be checked so that each random thing hapens at least according to the stats laid out below.
+
 
 
 # ESE224-MidtermProject

@@ -1,17 +1,12 @@
 #include "scoreboard.h"
 
 scoreboard::scoreboard() {
-    sbName = "";
     sbScore = 0;
     sbDifficulty = "";
     sbDifficultyMod = 0;
     sbFloor = 0;
 }
-void scoreboard::setName(istream& in) {
-    cin >> sbName;
-    sbName += "scoreboard.txt";
 
-}
 void scoreboard::setScore(int input) {
     sbScore = input;
 }
@@ -23,10 +18,6 @@ void scoreboard::setDiffMod(int input) {
 }
 void scoreboard::setFloor(int input) {
     sbFloor = input;
-}
-
-string scoreboard::getName() {
-    return sbName;
 }
 
 int scoreboard::getScore() {
@@ -48,8 +39,7 @@ void scoreboard::addScore(int input) {
 }
 
 void scoreboard::sbOut() {
-    cout << "\nScoreboard Name: " << sbName
-        << "\nScore: " << sbScore
+    cout << "Score: " << sbScore
         << "\nsbDifficulty: " << sbDifficulty
         << "\nFloor: " << sbFloor << endl;
 }

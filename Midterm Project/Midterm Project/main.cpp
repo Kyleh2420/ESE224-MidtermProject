@@ -59,8 +59,6 @@ int main() {
 				case 'n':
 					cout << "Please enter a save file name: ";
 					files.setPName(cin);
-					cout << "Please enter a scoreboard file name:";
-					p1Scoreboard.setName(cin);
 					cout << "Please enter your player name: ";
 					p1.setName(cin);
 					while (loop) {
@@ -88,10 +86,6 @@ int main() {
 								break;
 						}
 					}
-					cout << "Please enter a save file name wih a .txt extention: ";
-					files.setPName(cin);
-					cout << "Please enter a scoreboard file name with a .txt extention: ";
-					p1Scoreboard.setName(cin);
 					files.save2File(p1);
 					files.save2File(p1Scoreboard);
 				break;

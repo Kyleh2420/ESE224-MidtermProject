@@ -3,9 +3,9 @@
 - [ ] New File has already been done (Need to set up scoreboard for new file)
 - [ ] Need to work on loading a file (Around line 41 of main.cpp)
 - [ ] Work on the various floors
-        - [X] Floor Level Creation according to statistics
-        - [ ] takeStep() function, which reads from a file a random list of possible outputs, including dev notes, character development, or character senses (Visual, smell, etc). See Reference game below
-        - [X] Tracking current users position
+  *  Floor Level Creation according to statistics
+  *  takeStep() function, which reads from a file a random list of possible outputs, including dev notes, character development, or character senses (Visual, smell, etc). See Reference game below
+  * Tracking current users position
 * See floor psuedo code below. Then, implement the random events of take a step
 * Reference Game: https://web.simple-mmo.com/
 

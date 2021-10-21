@@ -53,4 +53,6 @@ Floor 4 consists of 4 strong enemies with three random events.
 In the file operations class, we create 2 different files. The player file will store all information about the current game, as well as offer a way to load a game from a save file.
 
 # JOURNAL
-10/21 - changed how scoreboard works. Linked it to the player's save file. Also changed how file creation works - user no longer needs to add .txt when creating a new file.
+10/21
+* changed how scoreboard works. Linked it to the player's save file.
+* Also changed how file creation works - user no longer needs to add .txt when creating a new file.

@@ -21,7 +21,7 @@ class scoreboard {
         scoreboard();
         
         //Setters!
-        void setName(string input);
+        void setName(istream& in);
         void setScore(int input);
         void setDiff(string input);
         void setDiffMod(int input);

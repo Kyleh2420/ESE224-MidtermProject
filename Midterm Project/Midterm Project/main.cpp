@@ -23,15 +23,13 @@ void chooseWeapon(weapon[4][4], int, player&) {
 
 int main() {
 	player p1;
-	scoreboard test;
+	scoreboard p1Scoreboard;
 	fileOperations files;
 
 	
-    //The following will loop through the player's save options 
+    //The following will loop through the player's starting options 
 	char selection;
     bool loop = true;
-	//This should call save2file scoreboard
-	files.save2File(test);
     while (loop) {
 			cout << "Would you like to create a new file or load a save file? "
 				<< "\nN - Create a new save file \nL - Load a save file \nYour answer: ";
@@ -44,21 +42,48 @@ int main() {
 				case 'n':
 					cout << "Please enter a save file name wih a .txt extention: ";
 					files.setPName(cin);
+					cout << "Please enter a scoreboard file name with a .txt extention: ";
+					p1Scoreboard.setName(cin);
 					cout << "Please enter your player name: ";
 					//Default values
 					p1.setName(cin);
+					while (loop) {
+						cout << "Please enter your difficulty level\nE - easy\nM - Medium\nH - Hard\nYour selection: ";
+						cin >> selection;
+						selection = tolower(selection);
+						switch(selection){
+							case 'e':
+								cout << "Difficulty set to easy" << endl;
+								p1Scoreboard.setDiff("Easy");
+								loop = false;
+								break;
+							case 'm':
+								cout << "Difficulty set to medium" << endl;
+								p1Scoreboard.setDiff("Medium");
+								loop = false;
+								break;
+							case 'h':
+								cout << "Difficulty set to hard" << endl;
+								p1Scoreboard.setDiff("Hard");
+								loop = false;
+								break;
+							default:
+								cout << "Please enter a valid response" << endl;
+								break;
+						}
+					}
 					files.save2File(p1);
-					loop = false;
+					files.save2File(p1Scoreboard);
 					break;
 				default:
 					cout << "Please enter a valid response" << endl;
 			}
     }
 	cout << "Now entering Game Portion";
-	//For some reason, when running the above, we won't be able to save any files, no matter what.
-	//I personally am confused as to why we can't open files.
-	//Error originates from fileOperations.h. pmyFile.open(fileName).
 
+
+
+	//Game Portion of the code
 
 
 

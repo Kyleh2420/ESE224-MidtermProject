@@ -7,8 +7,8 @@ scoreboard::scoreboard() {
     sbDifficultyMod = 0;
     sbFloor = 0;
 }
-void scoreboard::setName(string input) {
-    sbName = input;
+void scoreboard::setName(istream& in) {
+    cin >> sbName;
 
 }
 void scoreboard::setScore(int input) {

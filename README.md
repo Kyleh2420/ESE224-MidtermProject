@@ -1,6 +1,7 @@
 # Current To Do List
-Solve File Saving problem, see main.cpp, lines 55-57
-
+New File ahs already been done (Need to set up scoreboard for new file)
+Need to work on loading a file (Around line 41 of main.cpp)
+Work on floor 1
 
 
 # ESE224-MidtermProject

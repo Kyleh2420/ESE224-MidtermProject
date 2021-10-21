@@ -42,7 +42,6 @@ int scoreboard::getFloor() {
     return sbFloor;
 }
 
-
 void scoreboard::addScore(int input) {
     sbScore += input;
 }

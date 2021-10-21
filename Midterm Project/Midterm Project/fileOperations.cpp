@@ -23,8 +23,6 @@ void fileOperations::save2File(scoreboard& input) {
     }
     input.sbOut();
     closeFile();
-
-
 }
 
 void fileOperations::chooseFile(scoreboard& s, player& p) {

@@ -5,6 +5,7 @@ Need to work on loading a file (Around line 41 of main.cpp)
 Work on the various floors
 * See floor psuedo code below. Then, implement the random events of take a step
 * This will also read lines from a file: Dev notes, interesting experiences, etc. See the game that Dangy showed.
+* Reference Game: https://web.simple-mmo.com/
 ## Floor Psuedocode
 The floor system is going to work like this:
 1. When a new floor is loaded (switch case statement checking scoreboard's floor)
@@ -50,3 +51,8 @@ Floor 4 consists of 4 strong enemies with three random events.
 
 ## File Operations
 In the file operations class, we create 2 different files. The player file will store all information about the current game, as well as offer a way to load a game from a save file.
+
+# JOURNAL
+10/21
+* changed how scoreboard works. Linked it to the player's save file.
+* Also changed how file creation works - user no longer needs to add .txt when creating a new file.

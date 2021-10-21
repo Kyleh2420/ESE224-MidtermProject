@@ -53,10 +53,12 @@ int main() {
 			cin >> selection;
 			selection = tolower(selection);
 			switch(selection) {
-				case 'l':
+				case 'l':	//Ask user for save name. IDK what file type(prob .dat, right?) we are saving in but could we concatenate the file type extension to the user input?
 					loop = false;
 					break;
 				case 'n':
+					cout << "Please enter a save file name: ";
+					files.setPName(cin);
 					cout << "Please enter your player name: ";
 					p1.setName(cin);
 					while (loop) {
@@ -84,10 +86,6 @@ int main() {
 								break;
 						}
 					}
-					cout << "Please enter a save file name wih a .txt extention: ";
-					files.setPName(cin);
-					cout << "Please enter a scoreboard file name with a .txt extention: ";
-					p1Scoreboard.setName(cin);
 					files.save2File(p1);
 					files.save2File(p1Scoreboard);
 				break;

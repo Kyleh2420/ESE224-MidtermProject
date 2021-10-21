@@ -23,8 +23,6 @@ void fileOperations::save2File(scoreboard& input) {
     }
     input.sbOut();
     closeFile();
-
-
 }
 
 void fileOperations::chooseFile(scoreboard& s, player& p) {
@@ -41,4 +39,6 @@ void fileOperations::scoreRank() {
 //Accepts cin as the arguement and sets the player savefile name
 void fileOperations::setPName(istream& in) {
     in >> pFileName;
+    sbFileName = pFileName + "scoreboard.txt";
+    pFileName += ".txt";
 }

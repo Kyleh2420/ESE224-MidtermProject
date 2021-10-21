@@ -41,4 +41,5 @@ void fileOperations::scoreRank() {
 //Accepts cin as the arguement and sets the player savefile name
 void fileOperations::setPName(istream& in) {
     in >> pFileName;
+    pFileName += ".txt";
 }

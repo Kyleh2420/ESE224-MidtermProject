@@ -9,6 +9,7 @@ scoreboard::scoreboard() {
 }
 void scoreboard::setName(istream& in) {
     cin >> sbName;
+    sbName += "scoreboard.txt";
 
 }
 void scoreboard::setScore(int input) {

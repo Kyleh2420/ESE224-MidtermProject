@@ -54,5 +54,6 @@ In the file operations class, we create 2 different files. The player file will 
 
 # JOURNAL
 10/21
-* changed how scoreboard works. Linked it to the player's save file.
-* Also changed how file creation works - user no longer needs to add .txt when creating a new file.
+* William
+** changed how scoreboard works. Linked it to the player's save file.
+** Also changed how file creation works - user no longer needs to add .txt when creating a new file.

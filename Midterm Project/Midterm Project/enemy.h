@@ -10,7 +10,7 @@ private:
 	int maxHealth;
 	//Enemys HP
 	int healthPoints;
-	//Enemys AD
+	//Enemys AD. Multiplied by the level gets you the actual enemys damage
 	int attackDamage;
 	//Enemys level. Each level increase should increase their stats
 	int level = 0;
@@ -21,10 +21,16 @@ public:
 	enemy(string n, int max, int hp, int ad, int lvl);
 
 	//Getters!
+	//Returns the [string] name of the enemy
 	string getName();
+	//Returns the [int] maxHP of the enemy
 	int getMaxHP();
+	//Returns the [int] current hp of the enemy
 	int getHP();
+	//Returns the [int] current damage of the enemy.
+	//Once multiplied with the current leve, gets you the actaul damage of the enemy
 	int getDMG();
+	//Returns the [int] current level of the enemy
 	int getLvl();
 
 	//Setters!

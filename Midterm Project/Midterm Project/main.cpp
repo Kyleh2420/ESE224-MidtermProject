@@ -5,18 +5,31 @@
 //If called again, it will result in a redefinition error
 using namespace std;
 
+//The player will have 4 options
+//1. Examine themselves (Return HP/MaxHP, damage, and name)
+//	1a. Change weapon (Only in the beginning of the encounter) [At least that's what I want it to be]
+//2. Examine the enemy (Return Name, HP/Max HP, damage)
+//3. Attack 
+//4. Run Away
 void playerCombat(player&, weapon[4][4], enemy&, scoreboard&) {
 
 }
 
+//The enemy will attack.
+//Decrease player's HP according to enemy's level and AD
+//Check if player is dead
 bool enemyCombat(enemy&, player&, scoreboard&) {
 	return false;
 }
 
-void playerOptions(player&, fileOperations&, scoreboard&) {
-
+//This function is essentially a pause menu. The player has the following options:
+//1. Examine themselves
+//2. See the scorboard
+//3. Save and Quit
+void playerOptions(player& p1, fileOperations& files, scoreboard& p1Scoreboard) {
 }
 
+//Changes weapon
 void chooseWeapon(weapon[4][4], int, player&) {
 
 }
@@ -28,6 +41,10 @@ int main() {
 
 	
     //The following will loop through the player's starting options 
+	//The User will select whether or not a new file is created or loaded.
+	//If a new file is created, it will Ask for the players name and difficulty, then save those to 
+	//player p1 and scoreboard p1Scoreboard, respectively. It will then jump to
+	//playerOptions (The glorified pause menu) for file saving
 	char selection;
     bool loop = true;
     while (loop) {
@@ -45,7 +62,6 @@ int main() {
 					cout << "Please enter a scoreboard file name:";
 					p1Scoreboard.setName(cin);
 					cout << "Please enter your player name: ";
-					//Default values
 					p1.setName(cin);
 					while (loop) {
 						cout << "Please enter your difficulty level\nE - easy\nM - Medium\nH - Hard\nYour selection: ";
@@ -72,9 +88,13 @@ int main() {
 								break;
 						}
 					}
+					cout << "Please enter a save file name wih a .txt extention: ";
+					files.setPName(cin);
+					cout << "Please enter a scoreboard file name with a .txt extention: ";
+					p1Scoreboard.setName(cin);
 					files.save2File(p1);
 					files.save2File(p1Scoreboard);
-					break;
+				break;
 				default:
 					cout << "Please enter a valid response" << endl;
 			}
@@ -84,9 +104,7 @@ int main() {
 
 
 	//Game Portion of the code
-
-
-
+	enemy 
 	enemy Alex("Alex", 30, 30, 5, 1);
 	cout << Alex << endl;
 	weapon sword;

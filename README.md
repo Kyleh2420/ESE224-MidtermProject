@@ -3,11 +3,19 @@ Need to understand how the scoreboard is going to work to keep track of things.
 New File ahs already been done (Need to set up scoreboard for new file)
 Need to work on loading a file (Around line 41 of main.cpp)
 Work on the various floors
+* See floor psuedo code below. Then, implement the random events of take a step
+* This will also read lines from a file: Dev notes, interesting experiences, etc. See the game that Dangy showed.
 ## Floor Psuedocode
 The floor system is going to work like this:
-    * When a new floor is loaded (switch case statement checking scoreboard's floor)
-    *    randomly generate a list of 25 numbers from 0-3. This will be the random encounters that happen when a user steps forward. 
-    *        This needs to be checked so that each random thing hapens at least according to the stats laid out below.
+1. When a new floor is loaded (switch case statement checking scoreboard's floor)
+2.    Create a vector with a list of 25 numbers from 0-3, loaded by specific values set by the current floor level. 
+        * Use std::random_shuffle to shuffle the vector. This becomes the random occurances that happen when the user steps forward.
+2.    Randomly generate a list of 25 numbers from 0-3. This will be the random encounters that happen when a user steps forward. 
+        * 0 - Nothing happens
+        * 1 - Enemy Encounter. Enter Battle scene
+        ~~* 2 - Good random encounter. Ex: Player finds a treat or something and gains an extra HP.~~
+        ~~* 3 - Bad random encounter. Ex: Player trips over a rock and loses 1 hp.~~ 
+        * 2 - Random encounter. Could be good or bad, will be generated randomly
 
 
 

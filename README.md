@@ -26,6 +26,13 @@
 * Kyle
   * Added additional takeStep user interface. Now, every step that the usre takes, the code will branch to the random even that should happen. See main.cpp, main game loop (Approx. Line 140).
   * Need file operation class to start implementing the random events. The goal is to read a random line out of a file and create the event based around that. Ex: "Fl1Enemies.txt" will contain the information about the various enemies that are available. "Fl1Weapons.txt" will contain the weapons available on fl1. "QuirkyComments.txt" will hold all lines of text relative to the "Do nothing" cycle. Ideally, there should be one of these per floor so that we can control the "story" arc that we see.
+* William
+  * Started randomEvents class (randomEvents.h and randomEvent.cpp)
+    * each floor will have its own text file
+    * NEEDS: interface it with floor.cpp to get the random events line
+    * If we are gonna evetns where the player gets health/take damage, how we gonna do that in the txt file?
+  * Edited floor.h to get floor level
+  * Probably broke everything. 
 
 # ESE224-MidtermProject
 

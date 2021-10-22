@@ -66,7 +66,7 @@ int main() {
 				case 'l':
 					//
 					p1Scoreboard.setFloor(2);
-					p1Scoreboard.setPos(7);
+					p1Scoreboard.setPos(0);
 					loop = false;
 					break;
 				case 'n': //New File is to be created. We must gather information about the user.
@@ -135,21 +135,24 @@ int main() {
 					//1 - Enter combat
 					//2 - Random Event
 					//Default: Something wrong occurred. Treat this as a do nothing 
-					switch(playGame.getRandomEvent()) {
-						case 1:
-							//The following function requires weapons and an enemy to fight against
-							//My goal is to have the enemy randomly generated out of a file, according to 
-							//a preset list. 
-							//Ex: Fl1Enemies.txt and Fl1Weapons.txt both contain info about what is available on each floor	
-							//enterCombat(p1, , , p1Scoreboard);
-							break;
-						case 2:
-							//Random Events also need to be read from a file.
-							break;
-						case 0:
-						default:
-							//QuIrKy comments need to be read from a file as well
-							//cout << Quirky comment here << endl;
+					 switch(playGame.getRandomEvent()) {
+					 	case 1:
+						 	cout << "You encounter an enemy" << endl;
+					// 		//The following function requires weapons and an enemy to fight against
+					// 		//My goal is to have the enemy randomly generated out of a file, according to 
+					// 		//a preset list. 
+					// 		//Ex: Fl1Enemies.txt and Fl1Weapons.txt both contain info about what is available on each floor	
+					// 		//enterCombat(p1, , , p1Scoreboard);
+					 		break;
+					 	case 2:
+						 	cout << "A random event occurs" << endl;
+					// 		//Random Events also need to be read from a file.
+					 		break;
+					 	case 0:
+					 	default:
+					// 		//QuIrKy comments need to be read from a file as well
+					 		cout << "Quirky comment here" << endl;
+					// 		break;
 					}
 					break;
 				case 'm': //The user access a pause menu

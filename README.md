@@ -10,7 +10,7 @@
 * Reference Game: https://web.simple-mmo.com/
 
 # JOURNAL
-10/21
+#### 10/21
 * William 
   * changed how scoreboard works. Linked it to the player's save file.
   * Also changed how file creation works - user no longer needs to add .txt when creating a new file.
@@ -21,6 +21,11 @@
 * Kyle (Again)
   * Implemented takeStep function to track where the user is in the floor. 
   * Edited main.cpp to include the main game loop. The game loop will now automatically increment floors when the user has finished the previous floor (By way of taking steps), and recognizes when the top floor is completed.
+  * May have accidently just broke everything William just did...
+#### 10/22
+* Kyle
+  * Added additional takeStep user interface. Now, every step that the usre takes, the code will branch to the random even that should happen. See main.cpp, main game loop (Approx. Line 140).
+  * Need file operation class to start implementing the random events. The goal is to read a random line out of a file and create the event based around that. Ex: "Fl1Enemies.txt" will contain the information about the various enemies that are available. "Fl1Weapons.txt" will contain the weapons available on fl1. "QuirkyComments.txt" will hold all lines of text relative to the "Do nothing" cycle. Ideally, there should be one of these per floor so that we can control the "story" arc that we see.
 
 # ESE224-MidtermProject
 

@@ -7,8 +7,9 @@
 using namespace std;
 
 
-gameFloor::gameFloor(int inpLevel) {
+gameFloor::gameFloor(int inpLevel, int pos) {
     floorLevel = inpLevel;
+    currentPos = pos;
     //The following for loop fills the vector floorSetup with the
     //number of random events using the floor settings.
     for (int i = 0; i < totalPos; i++) {
@@ -55,4 +56,7 @@ int gameFloor::getCurrentPos() {
 
 int gameFloor::getTotalPos() {
     return totalPos;
+}
+int gameFloor::getRandomEvent() {
+    return floorSetup[currentPos];
 }

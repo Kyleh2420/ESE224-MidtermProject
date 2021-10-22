@@ -5,6 +5,7 @@ scoreboard::scoreboard() {
     sbDifficulty = "";
     sbDifficultyMod = 0;
     sbFloor = 0;
+    sbPos = 0;
 }
 
 void scoreboard::setScore(int input) {
@@ -19,6 +20,9 @@ void scoreboard::setDiffMod(int input) {
 void scoreboard::setFloor(int input) {
     sbFloor = input;
 }
+void scoreboard::setPos(int input) {
+    sbPos = input;
+}
 
 int scoreboard::getScore() {
     return sbScore;
@@ -31,6 +35,9 @@ int scoreboard::getDiffMod() {
 }
 int scoreboard::getFloor() {
     return sbFloor;
+}
+int scoreboard::getPos() {
+    return sbPos;
 }
 
 void scoreboard::addScore(int input) {

@@ -8,7 +8,7 @@ class gameFloor {
         //This vector will hold the floor setup(Which steps will have random encounters)
         vector<int>floorSetup;
         //Current position of the player
-        int currentPos = 0;
+        int currentPos;
         //How many steps per level there are
         int totalPos = 25;
         //Need to create:
@@ -27,11 +27,13 @@ class gameFloor {
         //Default constructor
         //Accepts floor level as an input, sets up and creates the floor.
         //Handles random encounter generation
-        gameFloor(int floor);
+        gameFloor(int inpLevel, int pos);
         //The user takes a step.
         void takeStep();
         //Will return the current players position 
         int getCurrentPos();
         //Will return the total positions possible in a floor level
         int getTotalPos();
+        //Will return the random occurance (If any) set to occur
+        int getRandomEvent();
 };

@@ -12,6 +12,8 @@ class scoreboard {
         int sbDifficultyMod;
         //Keeps track of the area in the game wich the player is at 
         int sbFloor;
+        //Keeps track of what position on the floor the player is at
+        int sbPos;
 
     public:
         //Default constructor
@@ -22,12 +24,14 @@ class scoreboard {
         void setDiff(string input);
         void setDiffMod(int input);
         void setFloor(int input);
+        void setPos(int input);
 
         //Getters!
         int getScore();
         string getDiff();
         int getDiffMod();
         int getFloor();
+        int getPos();
 
         void addScore(int input);
 

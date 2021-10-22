@@ -62,7 +62,6 @@ The floor system is going to work like this:
         ~~* 2 - Good random encounter. Ex: Player finds a treat or something and gains an extra HP.~~
         ~~* 3 - Bad random encounter. Ex: Player trips over a rock and loses 1 hp.~~ 
         * 2 - Random encounter. Could be good or bad, will be generated randomly
-        * 3 - Floor finish
 
 ## File Operations
 In the file operations class, we create 2 different files. The player file will store all information about the current game, as well as offer a way to load a game from a save file.

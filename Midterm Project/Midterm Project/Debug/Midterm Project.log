@@ -1,10 +1,2 @@
-﻿  floor.cpp
-D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Midterm Project\floor.cpp(41,19): warning C4244: 'initializing': conversion from '_Rep' to 'unsigned int', possible loss of data
-          with
-          [
-              _Rep=std::chrono::system_clock::rep
-          ]
-D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Midterm Project\floor.cpp(44,23): warning C4018: '<': signed/unsigned mismatch
-  main.cpp
-  Generating Code...
+﻿  randomEvents.cpp
   Midterm Project.vcxproj -> D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Debug\Midterm Project.exe

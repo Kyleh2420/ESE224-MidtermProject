@@ -49,8 +49,6 @@ int main() {
 	player p1;
 	scoreboard p1Scoreboard;
 	fileOperations files;
-	randomEvents event;
-	event.getEvent();
 	
     //The following will loop through the player's starting options 
 	//The User will select whether or not a new file is created or loaded.
@@ -67,8 +65,8 @@ int main() {
 			switch(selection) {
 				case 'l':
 					//
-					p1Scoreboard.setFloor(2);
-					p1Scoreboard.setPos(0);
+					p1Scoreboard.setFloor(0);
+					p1Scoreboard.setPos(2);
 					loop = false;
 					break;
 				case 'n': //New File is to be created. We must gather information about the user.
@@ -118,16 +116,17 @@ int main() {
 	//While we are in the game
 	//Each floor is a repeat with different probabilities, therefore this code reuses the same thing for every floor
 	///THIS IS THE MAIN GAME LOOP
-	//Each time this loop is run, we create a different floor, based on what is in p1Scoreboard
+	//Each time this loop is run, we construct different objects depending on what we read from p1Scoreboard
 	while (loop) {
 		//Creates a new class playGame with the current floor
 		gameFloor playGame(p1Scoreboard.getFloor(), p1Scoreboard.getPos());
+		//Opens a file for the randomEvents that may occur (With tile 2)
+		randomEvents event(p1Scoreboard.getFloor());
 		//Primes the random event selector with the selector
-		event.openFile(p1Scoreboard.getFloor());
 		cout << "The current floor is: " << p1Scoreboard.getFloor() << endl;
 		//We stay in this while loop as long as the usre has not reached the maximum position 
 		//Anotherwards, repeat the following loop until we run out of positions to advance to
-		while (playGame.getCurrentPos() < playGame.getTotalPos()) {
+		while (playGame.getCurrentPos() < playGame.getTotalPos()-1) {
 			//User Input. Gets whether the user would like to take a step or pause
 			cout << "The current position is " << playGame.getCurrentPos() << "/" << playGame.getTotalPos() << endl;
 			cout << "Press [t] to take a step, or press [m] to access menu options. \nYou entered: ";
@@ -155,7 +154,7 @@ int main() {
 					 		break;
 					 	case 2:
 						 	cout << "A random event occurs" << endl;
-							cout << event.getEvent();
+							cout << event.getEvent() << endl;
 					// 		//Random Events also need to be read from a file.
 					 		break;
 					 	case 0:

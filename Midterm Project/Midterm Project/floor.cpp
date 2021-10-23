@@ -41,6 +41,7 @@ gameFloor::gameFloor(int inpLevel, int pos) {
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     shuffle(floorSetup.begin(), floorSetup.end(), default_random_engine(seed));
     //floorSetup.push_back(3);
+    cout << "The current tile setup: " << endl;
     for (int i = 0; i < floorSetup.size(); i++) {
         cout << floorSetup[i] << endl;
     }
@@ -59,6 +60,7 @@ int gameFloor::getTotalPos() {
     return totalPos;
 }
 int gameFloor::getRandomEvent() {
+    cout << "Position is: " << currentPos << endl;
     return floorSetup[currentPos];
 }
 

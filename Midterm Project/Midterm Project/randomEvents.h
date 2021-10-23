@@ -5,8 +5,8 @@ using namespace std;
 
 class randomEvents {
 private:
-	int lineCount;
-	vector<int> lineIndicies;
+	int lineCount = 0;
+	//vector<string> lineIndicies;
 
 	string eventsFileName;
 	fstream eventsFile;
@@ -14,8 +14,7 @@ private:
 	string line;
 
 public:
-	randomEvents();
-	void openFile(int floorLevel);
+	randomEvents(int floorLevel);
 	int getLineCount();
 	string getEvent();
 };

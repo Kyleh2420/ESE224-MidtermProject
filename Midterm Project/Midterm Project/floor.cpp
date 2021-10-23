@@ -60,3 +60,7 @@ int gameFloor::getTotalPos() {
 int gameFloor::getRandomEvent() {
     return floorSetup[currentPos];
 }
+
+int gameFloor::getFloorLevel() {
+    return floorLevel;
+}

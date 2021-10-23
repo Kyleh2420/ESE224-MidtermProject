@@ -48,7 +48,7 @@ int main() {
 	player p1;
 	scoreboard p1Scoreboard;
 	fileOperations files;
-
+	files.openRandomEvents();
 	
     //The following will loop through the player's starting options 
 	//The User will select whether or not a new file is created or loaded.

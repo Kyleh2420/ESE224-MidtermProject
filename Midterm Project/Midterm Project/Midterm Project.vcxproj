@@ -24,6 +24,7 @@
     <ClCompile Include="floor.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="player.cpp" />
+    <ClCompile Include="randomEvents.cpp" />
     <ClCompile Include="scoreboard.cpp" />
     <ClCompile Include="weapon.cpp" />
   </ItemGroup>
@@ -32,6 +33,7 @@
     <ClInclude Include="fileOperations.h" />
     <ClInclude Include="floor.h" />
     <ClInclude Include="player.h" />
+    <ClInclude Include="randomEvents.h" />
     <ClInclude Include="scoreboard.h" />
     <ClInclude Include="Weapon.h" />
   </ItemGroup>

@@ -16,6 +16,7 @@ class fileOperations {
         string pFileName;
         //Opens the player File
         fstream pmyFile;
+
     public:
         //Saves player progress to file
         void save2File(player&);
@@ -31,4 +32,8 @@ class fileOperations {
 
         //Setting of something
         void setPName(istream& in);
+
+        //Opens the ramdom Events File
+        void openRandomEvents();
+        string getRandomEvent();
 };

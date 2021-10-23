@@ -1,4 +1,6 @@
 #include "fileOperations.h"
+#include <vector>
+using namespace std;
 
 //This class will handle the opening, saving, and closing of the player file.
 void fileOperations::save2File(player& input) {
@@ -39,6 +41,6 @@ void fileOperations::scoreRank() {
 //Accepts cin as the arguement and sets the player savefile name
 void fileOperations::setPName(istream& in) {
     in >> pFileName;
-    sbFileName = pFileName + "scoreboard.txt";
+    sbFileName = pFileName + sbFileName;
     pFileName += ".txt";
 }

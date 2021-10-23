@@ -36,4 +36,6 @@ class gameFloor {
         int getTotalPos();
         //Will return the random occurance (If any) set to occur
         int getRandomEvent();
+        //ReturnsFloorLevel
+        int getFloorLevel();
 };

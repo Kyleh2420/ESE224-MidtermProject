@@ -36,6 +36,9 @@
     <ClCompile Include="floor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="randomEvents.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="enemy.h">
@@ -54,6 +57,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="floor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="randomEvents.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

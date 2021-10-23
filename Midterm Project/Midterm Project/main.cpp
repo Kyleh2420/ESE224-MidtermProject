@@ -116,12 +116,15 @@ int main() {
 	//While we are in the game
 	//Each floor is a repeat with different probabilities, therefore this code reuses the same thing for every floor
 	///THIS IS THE MAIN GAME LOOP
+	//Each time this loop is run, we create a different floor, based on what is in p1Scoreboard
 	while (loop) {
 		//Creates a new class playGame with the current floor
 		gameFloor playGame(p1Scoreboard.getFloor(), p1Scoreboard.getPos());
 		cout << "The current floor is: " << p1Scoreboard.getFloor() << endl;
-		//We stay in this while loop as long as we are still on the same floor
+		//We stay in this while loop as long as the usre has not reached the maximum position 
+		//Anotherwards, repeat the following loop until we run out of positions to advance to
 		while (playGame.getCurrentPos() < playGame.getTotalPos()) {
+			//User Input. Gets whether the user would like to take a step or pause
 			cout << "The current position is " << playGame.getCurrentPos() << "/" << playGame.getTotalPos() << endl;
 			cout << "Press [t] to take a step, or press [m] to access menu options. \nYou entered: ";
 			cin >> selection;
@@ -129,7 +132,9 @@ int main() {
 			switch(selection) {
 				case 't': //The user takes a step
 					playGame.takeStep();
+					//Now that the user has taken a step, we need to see what tile the user has landed on. Use playGame.getRandomEvent to see the tile
 					//After the user takes a step, we need to see if a random encounter has occurred
+					//Depending on what tile the user lands on, we must respond differently
 					//As a reminder:
 					//0 - Do Nothing
 					//1 - Enter combat
@@ -163,6 +168,7 @@ int main() {
 			}
 
 		}
+		//Once we exit the above loop, we know that the user has completed the floor (Has advanced as far as they can on the floor)
 
 
 
@@ -171,6 +177,7 @@ int main() {
 		p1Scoreboard.setFloor(p1Scoreboard.getFloor()+1);
 		//Resets the player's position on the floor back to the beginning
 		p1Scoreboard.setPos(0);
+		//We can check if the user has reached the last floor. If they have, then we can exit the main game loop
 		//If the user has reached the last floor, we can confirm the user has completed the game!
 		if (p1Scoreboard.getFloor() == 4) {
 			loop = false;

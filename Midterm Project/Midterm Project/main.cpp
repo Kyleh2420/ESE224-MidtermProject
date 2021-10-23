@@ -2,6 +2,7 @@
 #include "fileOperations.h"
 #include "Weapon.h"
 #include "floor.h"
+#include "randomEvents.h"
 //player.h and scoreboard.h don't need to be called, since they are already called in fileOperations.h
 //If called again, it will result in a redefinition error
 using namespace std;
@@ -48,7 +49,8 @@ int main() {
 	player p1;
 	scoreboard p1Scoreboard;
 	fileOperations files;
-	files.openRandomEvents();
+	randomEvents event;
+	event.getEvent();
 	
     //The following will loop through the player's starting options 
 	//The User will select whether or not a new file is created or loaded.
@@ -120,6 +122,8 @@ int main() {
 	while (loop) {
 		//Creates a new class playGame with the current floor
 		gameFloor playGame(p1Scoreboard.getFloor(), p1Scoreboard.getPos());
+		//Primes the random event selector with the selector
+		event.openFile(p1Scoreboard.getFloor());
 		cout << "The current floor is: " << p1Scoreboard.getFloor() << endl;
 		//We stay in this while loop as long as the usre has not reached the maximum position 
 		//Anotherwards, repeat the following loop until we run out of positions to advance to
@@ -151,6 +155,7 @@ int main() {
 					 		break;
 					 	case 2:
 						 	cout << "A random event occurs" << endl;
+							cout << event.getEvent();
 					// 		//Random Events also need to be read from a file.
 					 		break;
 					 	case 0:

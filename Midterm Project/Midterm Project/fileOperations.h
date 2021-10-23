@@ -34,6 +34,6 @@ class fileOperations {
         void setPName(istream& in);
 
         //Opens the ramdom Events File
-        void openRandomEvents();
-        string getRandomEvent();
+        // void openRandomEvents();
+        // string getRandomEvent();
 };

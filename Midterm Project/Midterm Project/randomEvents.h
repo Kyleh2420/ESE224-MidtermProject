@@ -14,6 +14,7 @@ private:
 	string line;
 
 public:
+	randomEvents();
 	void openFile(int floorLevel);
 	int getLineCount();
 	string getEvent();

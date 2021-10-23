@@ -8,10 +8,10 @@ using namespace std;
 
 
 gameFloor::gameFloor(int inpLevel, int pos) {
+    //In the main code, inpLevel and pos will be inputted in order to load from a save file.
     floorLevel = inpLevel;
     currentPos = pos;
-    //The following for loop fills the vector floorSetup with the
-    //number of random events using the floor settings.
+    //The following for loop fills the vector floorSetup with random tiles, according to the floorSettings array
     for (int i = 0; i < totalPos; i++) {
         //As long as the floorLevel is valid, we can read the settings
         if (floorLevel < 4) {
@@ -37,6 +37,7 @@ gameFloor::gameFloor(int inpLevel, int pos) {
     // for (int i = 0; i < floorSetup.size(); i++) {
     //     cout << floorSetup[i] << endl;
     // }
+    //Randomly shuffles the tiles on the board
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     shuffle(floorSetup.begin(), floorSetup.end(), default_random_engine(seed));
     //floorSetup.push_back(3);
@@ -61,6 +62,3 @@ int gameFloor::getRandomEvent() {
     return floorSetup[currentPos];
 }
 
-int gameFloor::getFloorLevel() {
-    return floorLevel;
-}

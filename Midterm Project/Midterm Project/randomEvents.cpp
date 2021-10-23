@@ -1,15 +1,26 @@
 #include "randomEvents.h"
-#include <iostream>;
+#include <iostream>
 #include <string>
 using namespace std;
 
+randomEvents::randomEvents() {
+
+}
 void randomEvents::openFile(int floorLevel) {
 	switch (floorLevel) {
+	case '0':
+		eventsFileName = "F0RandomEvents.txt";
+		eventsFile.open(eventsFileName);
+		if (eventsFile.fail()) {
+			cerr << "Error: F1RandomEvents not found." << endl;
+			exit(1);
+		}
+		break;
 	case '1':
 		eventsFileName = "F1RandomEvents.txt";
 		eventsFile.open(eventsFileName);
 		if (eventsFile.fail()) {
-			cerr << "Error: F1RandomEvents not found." << endl;
+			cerr << "Error: F2RandomEvents not found." << endl;
 			exit(1);
 		}
 		break;
@@ -17,20 +28,12 @@ void randomEvents::openFile(int floorLevel) {
 		eventsFileName = "F2RandomEvents.txt";
 		eventsFile.open(eventsFileName);
 		if (eventsFile.fail()) {
-			cerr << "Error: F2RandomEvents not found." << endl;
+			cerr << "Error: F3RandomEvents not found." << endl;
 			exit(1);
 		}
 		break;
 	case '3':
 		eventsFileName = "F3RandomEvents.txt";
-		eventsFile.open(eventsFileName);
-		if (eventsFile.fail()) {
-			cerr << "Error: F3RandomEvents not found." << endl;
-			exit(1);
-		}
-		break;
-	case '4':
-		eventsFileName = "F4RandomEvents.txt";
 		eventsFile.open(eventsFileName);
 		if (eventsFile.fail()) {
 			cerr << "Error: F4RandomEvents not found." << endl;
@@ -52,5 +55,6 @@ int randomEvents::getLineCount() {
 }
 
 string randomEvents::getEvent() {
-
+	getline(eventsFile, line);
+	return line;
 }

@@ -33,6 +33,14 @@
     * If we are gonna evetns where the player gets health/take damage, how we gonna do that in the txt file?
   * Edited floor.h to get floor level
   * Probably broke everything. 
+* Kyle
+  * Gave Example of what F0RandomEvent.txt might contain. Is in format [hp gain/loss], followed by [Message to show user]
+  * Attempted to create getEvent() in randomEvents.cpp. Failed
+  * Removed the ability to get floor level from floor.h. This was available to get from the scoreboard.
+  * Adjusted randomEvents.h/cpp by moving openFile to the constructor so that a new file could be called every game cycle
+  * In reference to William's comment above: You don't actually need to interface randomEvents class to get randomEvents line.
+    * The floor has already been loaded into the variables via the constructor
+    * Just implement selecting a random line out of the file
 
 # ESE224-MidtermProject
 

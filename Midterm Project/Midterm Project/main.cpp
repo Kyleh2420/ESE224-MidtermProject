@@ -38,6 +38,38 @@ bool enemyCombat(enemy&, player&, scoreboard&) {
 //2. See the scorboard
 //3. Save and Quit
 void playerOptions(player& p1, fileOperations& files, scoreboard& p1Scoreboard) {
+	int selection;
+	bool loop = true;
+	cout << "Pause menu\n---------------\n"
+		<< "Please enter a number\n"
+		<< "1 - Examine Yourself\n"
+		<< "2 - See the Scoreboard\n"
+		<< "3 - Exit the menu\n"
+		<< "4 - Save and quit\nYour selection: ";
+	while (loop) {
+		cin >> selection;
+		switch (selection) {
+		case 1:
+			cout << "\nYou selected 'Examine Yourself'" << endl;
+			cout << p1 << endl;
+			loop = false;
+			break;
+		case 2:
+			cout << "\nYou selected 'See the scoreboard'" << endl;
+			loop = false;
+			break;
+		case 3:
+			cout << "\nYou selected 'Exit the menu'" << endl;
+			loop = false;
+			break;
+		case 4:
+			cout << "\nYou selected 'Save and Quit'" << endl;
+			loop = false;
+			break;
+		default:
+			cout << "That wasn't an option!" << endl;
+		}
+	}
 }
 
 //Changes weapon

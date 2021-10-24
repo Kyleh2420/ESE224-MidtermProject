@@ -57,3 +57,9 @@ void player::modDamage(int input) {
     if (attackDamage < 0)
         attackDamage = 0;
 }
+
+ostream& operator <<(ostream& os, const player& p) {
+    os << "Name: " << p.name << "Max Health: " << p.maxHealth 
+    << "HP: " <<  p.healthPoints << "Damage: " << p.attackDamage;
+    return os;
+}

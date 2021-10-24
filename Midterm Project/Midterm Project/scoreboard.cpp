@@ -50,6 +50,8 @@ void scoreboard::sbOut() {
         << "\nFloor: " << sbFloor << endl;
 }
 
-ostream& operator <<(ostream& os, const scoreboard& p) {
+ostream& operator <<(ostream& os, const scoreboard& s) {
+    os << "Current Score: " << s.sbScore << "Current Difficulty: " << s.sbDifficulty
+    << "Floor Level: " << s.sbFloor << "Position: " << s.sbPos;
     return os;
 }

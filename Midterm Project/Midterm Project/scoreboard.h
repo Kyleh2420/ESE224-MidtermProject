@@ -38,5 +38,5 @@ class scoreboard {
         //Print scoreboard
         void sbOut();
 
-        friend ostream& operator <<(ostream& os, const scoreboard& p);
+        friend ostream& operator <<(ostream& os, const scoreboard& s);
 };

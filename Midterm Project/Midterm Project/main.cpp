@@ -131,9 +131,9 @@ int main() {
 					}
 					p1Scoreboard.setFloor(0);
 					p1Scoreboard.setPos(0);
-					cout << "Please enter a save file name wih a .txt extention: ";
+					cout << "Please enter a save file name: ";
 					files.setPName(cin);
-					cout << "Please enter a scoreboard file name with a .txt extention: ";
+					//cout << "Please enter a scoreboard file name with a .txt extention: ";
 					//p1Scoreboard.setName(cin);
 					files.save2File(p1);
 					files.save2File(p1Scoreboard);

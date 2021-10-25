@@ -1,7 +1,9 @@
-10 Toriel gives you butterscotch pie. It was delicious.
-1 You found a rock on the ground. You eat it. It was somehow nutritious.
-5 A nice spider gave you some spider cider
-7 An onion rolls at your feet. It was caked in dirt but you ate it anyway. The dirt gave a nice twang to the flavor.
+10 0 Toriel gives you butterscotch pie. It was delicious.
+1 0 You found a rock on the ground. You eat it. It was somehow nutritious.
+5 0 A nice spider gave you some spider cider
+7 0 An onion rolls at your feet. It was caked in dirt but you ate it anyway. The dirt gave a nice twang to the flavor.
+0 2 You found a small pouch of coins.
 
--2 You tripped over a rock and scrape your right bone. It hurt, but you brushed it off.
--7 Out of nowhere, a brick with a note came at your head. "Do not proceed", it said.
+-2 0 You tripped over a rock and scrape your right bone. It hurt, but you brushed it off.
+-7 0 Out of nowhere, a brick with a note came at your head. "Do not proceed", it said.
+0 -2 You got pickpocketted.

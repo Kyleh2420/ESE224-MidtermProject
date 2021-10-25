@@ -5,12 +5,12 @@ using namespace std;
 
 class randomEvents {
 private:
-	int lineCount = 0;
-	//vector<string> lineIndicies;
+	vector<string> lines;
 
 	string eventsFileName;
 	fstream eventsFile;
 
+	int hpChange, balChange;
 	string line;
 
 public:

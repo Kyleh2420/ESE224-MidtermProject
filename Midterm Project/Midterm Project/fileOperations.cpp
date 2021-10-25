@@ -12,7 +12,8 @@ void fileOperations::save2File(player& input) {
     pmyFile << input.getName() << "\n"
             << input.getMaxHP() << "\n"
             << input.getHP() << "\n"
-            << input.getDMG() << endl;
+            << input.getDMG() << "\n"
+            << input.getBal() << endl;
     closeFile();
 
 }
@@ -43,4 +44,5 @@ void fileOperations::setPName(istream& in) {
     in >> pFileName;
     sbFileName = pFileName + sbFileName;
     pFileName += ".txt";
+    cout << pFileName << "\t" << sbFileName << endl;
 }

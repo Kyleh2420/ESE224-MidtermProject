@@ -8,12 +8,13 @@ using namespace std;
 
 int randomEvents::getLineCount() {
 	while (!eventsFile.eof()) {
+		eventsFile >> hpChange >> balChange;
 		getline(eventsFile, line);
-		lineCount++;
+		lines.push_back(line);
 	}
 	line = "";
-	cout << "Line count is: " << lineCount << endl;
-	return lineCount;
+	cout << "Line count is: " << lines.size() << endl;
+	return lines.size();
 }
 
 
@@ -76,6 +77,6 @@ string randomEvents::getEvent() {
 	}
 	cout << eventsFileName << endl;
 	*/
-	getline(eventsFile, line);
-	return line;
+	int randomNum = rand() % lines.size();
+	return lines[randomNum];
 }

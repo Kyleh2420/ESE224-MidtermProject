@@ -6,6 +6,7 @@ player::player() {
     maxHealth = 10;
     healthPoints = 10;
     attackDamage = 2;
+    balance = 0;
 }
 
 //Getters
@@ -24,6 +25,9 @@ int player::getHP() {
 int player::getDMG() {
     return attackDamage;
 }
+int player::getBal() {
+    return balance;
+}
 
 
 //Setters!
@@ -39,6 +43,9 @@ void player::setHP(int input) {
 }
 void player::setDMG(int input) {
     attackDamage = input;
+}
+void player::setBal(int input) {
+    balance = input;
 }
 
 
@@ -56,6 +63,13 @@ void player::modDamage(int input) {
     attackDamage += input;
     if (attackDamage < 0)
         attackDamage = 0;
+}
+
+//Modifies Player's money. Input is signed, Balance cannot be lower than 0.
+void player::modBal(int input) {
+    balance += input;
+    if (balance < 0)
+        balance = 0;
 }
 
 ostream& operator <<(ostream& os, const player& p) {

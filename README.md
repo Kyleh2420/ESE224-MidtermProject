@@ -42,7 +42,7 @@
   * In reference to William's comment above: You don't actually need to interface randomEvents class to get randomEvents line.
     * The floor has already been loaded into the variables via the constructor
     * Just implement selecting a random line out of the file
-#### 10/21
+#### 10/24
 * William 
   * added money system in player.h
   * modded randomEvents to accommodate for hp and balance changes from the random events.

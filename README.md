@@ -42,6 +42,13 @@
   * In reference to William's comment above: You don't actually need to interface randomEvents class to get randomEvents line.
     * The floor has already been loaded into the variables via the constructor
     * Just implement selecting a random line out of the file
+#### 10/21
+* William 
+  * added money system in player.h
+  * modded randomEvents to accommodate for hp and balance changes from the random events.
+  * changed how we read from randomEvents text file. We read two int values for hp and balance changes and then a string phrase for the text line to display.
+  * migrated lines storage to a vector instead of an array.
+  * fixed(hopefully) getRandomEvents().
 
 # ESE224-MidtermProject
 

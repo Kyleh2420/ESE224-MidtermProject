@@ -73,7 +73,7 @@ void player::modBal(int input) {
 }
 
 ostream& operator <<(ostream& os, const player& p) {
-    os << "Name: " << p.name << "Max Health: " << p.maxHealth 
-    << "HP: " <<  p.healthPoints << "Damage: " << p.attackDamage;
+    os << "\nName: " << p.name << "\nMax Health: " << p.maxHealth 
+    << "\nHP: " <<  p.healthPoints << "\nDamage: " << p.attackDamage;
     return os;
 }

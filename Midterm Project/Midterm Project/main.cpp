@@ -40,13 +40,13 @@ bool enemyCombat(enemy&, player&, scoreboard&) {
 void playerOptions(player& p1, fileOperations& files, scoreboard& p1Scoreboard) {
 	int selection;
 	bool loop = true;
-	cout << "Pause menu\n---------------\n"
-		<< "Please enter a number\n"
-		<< "1 - Examine Yourself\n"
-		<< "2 - See the Scoreboard\n"
-		<< "3 - Exit the menu\n"
-		<< "4 - Save and quit\nYour selection: ";
 	while (loop) {
+		cout << "Pause menu\n---------------\n"
+			<< "Please enter a number\n"
+			<< "1 - Examine Yourself\n"
+			<< "2 - See the Scoreboard\n"
+			<< "3 - Exit the menu\n"
+			<< "4 - Save and quit\nYour selection: ";
 		cin >> selection;
 		switch (selection) {
 		case 1:
@@ -56,6 +56,7 @@ void playerOptions(player& p1, fileOperations& files, scoreboard& p1Scoreboard) 
 			break;
 		case 2:
 			cout << "\nYou selected 'See the scoreboard'" << endl;
+			cout << p1Scoreboard << endl;
 			loop = false;
 			break;
 		case 3:
@@ -64,6 +65,10 @@ void playerOptions(player& p1, fileOperations& files, scoreboard& p1Scoreboard) 
 			break;
 		case 4:
 			cout << "\nYou selected 'Save and Quit'" << endl;
+			files.save2File(p1);
+			files.save2File(p1Scoreboard);
+			files.closeFile();
+			exit (0);
 			loop = false;
 			break;
 		default:
@@ -197,6 +202,7 @@ int main() {
 					}
 					break;
 				case 'm': //The user access a pause menu
+					p1Scoreboard.setPos(playGame.getCurrentPos());
 					playerOptions(p1, files, p1Scoreboard);
 					break;
 				default:

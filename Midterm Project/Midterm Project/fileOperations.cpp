@@ -24,7 +24,11 @@ void fileOperations::save2File(scoreboard& input) {
         cerr << "Error saving the file! Please try again!" << endl;
         exit(1);
     }
-    input.sbOut();
+    sb_myFile   << input.getScore() << "\n"
+                << input.getDiff() << "\n"
+                << input.getDiffMod() << "\n"
+                << input.getFloor() << "\n"
+                << input.getPos() << endl;
     closeFile();
 }
 

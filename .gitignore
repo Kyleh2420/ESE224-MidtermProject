@@ -1,1 +1,6 @@
 .vs/
+*.txt
+!Midterm Project/Midterm Project/F0RandomEvents.txt
+!Midterm Project/Midterm Project/F1RandomEvents.txt
+!Midterm Project/Midterm Project/F2RandomEvents.txt
+!Midterm Project/Midterm Project/F3RandomEvents.txt

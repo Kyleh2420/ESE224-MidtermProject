@@ -49,6 +49,11 @@
   * changed how we read from randomEvents text file. We read two int values for hp and balance changes and then a string phrase for the text line to display.
   * migrated lines storage to a vector instead of an array.
   * fixed(hopefully) getRandomEvents().
+#### 10/26
+* Kyle
+  * Added random enemy selector to the default constructor. Now takes the floor level as input, and will generate a random enemy out of the selected text files.
+  * Next steps: Upgrade weapon class to create a little shop for the user to spend their money to buy weapons.
+  * Next steps: Integrate an actual combat sequence. Each hp drained from the enemy is another coin in the player's pocket.
 
 # ESE224-MidtermProject
 

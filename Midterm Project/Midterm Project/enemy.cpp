@@ -1,11 +1,56 @@
 #include "enemy.h"
 
-enemy::enemy() {
-    name = "";
-    maxHealth = 0;
-    healthPoints = 0;
-    attackDamage = 0;
-    level = 0;
+enemy::enemy(int floorLevel) {
+    switch (floorLevel) {
+    case 0:
+        enemyFileName = "F0Enemies.txt";
+        cout << "Opening " << enemyFileName << endl;
+        enemyList.open(enemyFileName);
+        if (enemyList.fail()) {
+            cerr << "Error: F0Enemies.txt not found" << endl;
+            exit(1);
+        }
+        break;
+    case 1:
+        enemyFileName = "F1Enemies.txt";
+        cout << "Opening " << enemyFileName << endl;
+        enemyList.open(enemyFileName);
+        if (enemyList.fail()) {
+            cerr << "Error: F1Enemies.txt not found" << endl;
+            exit(1);
+        }
+        break;
+    case 2:
+        enemyFileName = "F2Enemies.txt";
+        cout << "Opening " << enemyFileName << endl;
+        enemyList.open(enemyFileName);
+        if (enemyList.fail()) {
+            cerr << "Error: F2Enemies.txt not found" << endl;
+            exit(1);
+        }
+        break;
+    case 3:
+        enemyFileName = "F3Enemies.txt";
+        cout << "Opening " << enemyFileName << endl;
+        enemyList.open(enemyFileName);
+        if (enemyList.fail()) {
+            cerr << "Error: F3Enemies.txt not found" << endl;
+            exit(1);
+        }
+        break;
+    default:
+        cout << "Well that wasn't supposed to happen. We couldn't find that floor!" << endl;
+        break;
+    }
+
+    //The following reads in the enemy list into the corresponding vector lists.
+    getLineCount();
+    randomizeSelector();
+    name = listOfNames[selector];
+    maxHealth = listOfMaxHP[selector];
+    healthPoints = listOfHP[selector];
+    attackDamage = listOfAD[selector];
+    level = listOfLevel[selector];
 }
 
 enemy::enemy(string n, int max, int hp, int ad, int lvl) {
@@ -88,58 +133,4 @@ ostream& operator << (ostream& os, const enemy& e) {
 void enemy::randomizeSelector() {
     srand(time(0));
     selector = rand() % listOfNames.size();
-}
-
-//This function will select the enemy randomly out of a file and place it into the variables above
-void enemy::randomEnemySelector(int floorLevel) {
-    switch (floorLevel) {
-        case 0:
-            enemyFileName = "F0Enemies.txt";
-            cout << "Opening " << enemyFileName << endl;
-            enemyList.open(enemyFileName);
-            if (enemyList.fail()) {
-                cerr << "Error: F0Enemies.txt not found" << endl;
-                exit(1);
-            }
-            break;
-         case 1:
-            enemyFileName = "F1Enemies.txt";
-            cout << "Opening " << enemyFileName << endl;
-            enemyList.open(enemyFileName);
-            if (enemyList.fail()) {
-                cerr << "Error: F1Enemies.txt not found" << endl;
-                exit(1);
-            }
-            break;
-         case 2:
-            enemyFileName = "F2Enemies.txt";
-            cout << "Opening " << enemyFileName << endl;
-            enemyList.open(enemyFileName);
-            if (enemyList.fail()) {
-                cerr << "Error: F2Enemies.txt not found" << endl;
-                exit(1);
-            }
-            break;
-         case 3:
-            enemyFileName = "F3Enemies.txt";
-            cout << "Opening " << enemyFileName << endl;
-            enemyList.open(enemyFileName);
-            if (enemyList.fail()) {
-                cerr << "Error: F3Enemies.txt not found" << endl;
-                exit(1);
-            }
-            break;
-        default:
-            cout << "Well that wasn't supposed to happen. We couldn't find that floor!" << endl;
-            break;
-    }
-
-    //The following reads in the enemy list into the corresponding vector lists.
-    getLineCount();
-    randomizeSelector();
-    name = listOfNames[selector];
-    maxHealth = listOfMaxHP[selector];
-    healthPoints = listOfHP[selector];
-    attackDamage = listOfAD[selector];
-    level = listOfLevel[selector];
 }

@@ -31,7 +31,7 @@ private:
 	void randomizeSelector();
 public:
 	//Default constructor
-	enemy();
+	enemy(int floorLevel);
 	//Enemy Constructor. Enter Name, MaxHP, hpCurrent, damage, and level
 	enemy(string n, int max, int hp, int ad, int lvl);
 

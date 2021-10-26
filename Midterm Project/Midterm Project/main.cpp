@@ -187,8 +187,7 @@ int main() {
 					// 		//My goal is to have the enemy randomly generated out of a file, according to 
 					// 		//a preset list. 
 					// 		//Ex: Fl1Enemies.txt and Fl1Weapons.txt both contain info about what is available on each floor	
-							enemy e1;
-							e1.randomEnemySelector(p1Scoreboard.getFloor());
+							enemy e1(p1Scoreboard.getFloor());
 					 		enterCombat(p1, e1, p1Scoreboard);
 					 		break;
 						}//These brackets are here to ger around the 

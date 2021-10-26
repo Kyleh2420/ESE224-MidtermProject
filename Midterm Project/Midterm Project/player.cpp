@@ -56,6 +56,8 @@ void player::modHealth(int input) {
     healthPoints += input;
     if (healthPoints > maxHealth)
         healthPoints = maxHealth;
+    if (healthPoints <= 0)
+        cout << "We're sorry, you have died!" << endl;
 }
 
 //Damage Modifier: Input is a signed interger. Attack damage cannot be lower than 0
@@ -74,6 +76,7 @@ void player::modBal(int input) {
 
 ostream& operator <<(ostream& os, const player& p) {
     os << "\nName: " << p.name << "\nMax Health: " << p.maxHealth 
-    << "\nHP: " <<  p.healthPoints << "\nDamage: " << p.attackDamage;
+    << "\nHP: " <<  p.healthPoints << "\nDamage: " << p.attackDamage
+    << "\nBalance: " << p.balance << endl;
     return os;
 }

@@ -12,8 +12,9 @@ using namespace std;
 //1. The player Runs away
 //2. The player runs out of HP
 //3. The enemy runs out of hp
-void enterCombat(player&, weapon[4][4], enemy&, scoreboard&) {
-
+void enterCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
+	cout << "Entering combat with " << e1 << endl;
+	cout << "Your stats: " << p1 << endl;
 }
 
 //The player will have 4 options
@@ -101,7 +102,6 @@ int main() {
 			selection = tolower(selection); //Lowercase everything to limit the number of cases
 			switch(selection) {
 				case 'l':
-					//
 					p1Scoreboard.setFloor(0);
 					p1Scoreboard.setPos(2);
 					loop = false;
@@ -165,7 +165,7 @@ int main() {
 		//Anotherwards, repeat the following loop until we run out of positions to advance to
 		while (playGame.getCurrentPos() < playGame.getTotalPos()-1) {
 			//User Input. Gets whether the user would like to take a step or pause
-			cout << "The current position is " << playGame.getCurrentPos() << "/" << playGame.getTotalPos() << endl;
+			cout << "\nThe current position is " << playGame.getCurrentPos() << "/" << playGame.getTotalPos() << endl;
 			cout << "Press [t] to take a step, or press [m] to access menu options. \nYou entered: ";
 			cin >> selection;
 			selection = tolower(selection);
@@ -181,18 +181,33 @@ int main() {
 					//2 - Random Event
 					//Default: Something wrong occurred. Treat this as a do nothing 
 					 switch(playGame.getRandomEvent()) {
-					 	case 1:
+					 	case 1: {
 						 	cout << "You encounter an enemy" << endl;
 					// 		//The following function requires weapons and an enemy to fight against
 					// 		//My goal is to have the enemy randomly generated out of a file, according to 
 					// 		//a preset list. 
 					// 		//Ex: Fl1Enemies.txt and Fl1Weapons.txt both contain info about what is available on each floor	
-					// 		//enterCombat(p1, , , p1Scoreboard);
+							enemy e1;
+							e1.randomEnemySelector(p1Scoreboard.getFloor());
+					 		enterCombat(p1, e1, p1Scoreboard);
 					 		break;
+						}//These brackets are here to ger around the 
+						 //"Transfer of control bypasses intitalization of variable e1"
+						 //This error is caused by the case not being in it's own scope, which is solved with {}
 					 	case 2:
-						 	cout << "A random event occurs" << endl;
+						 	//cout << "A random event occurs" << endl;
+							//The following gets a random event out of the file according to the floor
+							//Generates a random line out of the list
+							event.getRandom();
+							//The following affects the users stats
+							p1.modHealth(event.getHPChange());
+							p1.modBal(event.getBalChange());
+							//The following is user interface
 							cout << event.getEvent() << endl;
-					// 		//Random Events also need to be read from a file.
+							if (event.getHPChange() != 0) 
+								(event.getHPChange() < 0) ? cout << "You have lost " << event.getHPChange() << "Hp"<< endl: cout << "You have gained " << event.getHPChange() << "Hp" << endl;
+							if (event.getBalChange() != 0)
+								(event.getBalChange() < 0) ? cout << "You have lost " << event.getBalChange() << "coins"<< endl: cout << "You have gained " << event.getBalChange() << "coins" << endl;
 					 		break;
 					 	case 0:
 					 	default:
@@ -231,8 +246,8 @@ int main() {
 	}
 	
 	//Tests
-	enemy Alex("Alex", 30, 30, 5, 1);
-	cout << Alex << endl;
-	weapon sword;
+	//enemy Alex("Alex", 30, 30, 5, 1);
+	//cout << Alex << endl;
+	//weapon sword;
 
 }

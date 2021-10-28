@@ -61,7 +61,7 @@ public:
 
 	//Example Usage: 
 	//cout << enemyName << endl;
-	friend ostream& operator <<(ostream& os, const enemy& e, int diff);
+	friend ostream& operator <<(ostream& os, const enemy& e);
 
 
 	//The following is for the randomization of enemies

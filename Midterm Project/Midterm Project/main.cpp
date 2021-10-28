@@ -87,7 +87,7 @@ void weaponsShop(player& p1) {
 //Check if player is dead
 bool enemyCombat(enemy& e1, player& p1, scoreboard& p1Scoreboard) {
 	cout << "The enemy attacked you. " << -e1.getDMG() << " HP." << endl;
-	p1.modHealth(-e1.getDMG() * e1.getLvl() * p1Scoreboard.getDiff());
+	p1.modHealth(-e1.getDMG() * e1.getLvl());
 	//If the user has died, then return false
 	if (p1.getHP() <= 0) {
 		return false;

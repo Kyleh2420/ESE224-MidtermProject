@@ -110,9 +110,9 @@ void enemy::modDamage(int input) {
     }
 }
 
-ostream& operator << (ostream& os, const enemy& e, int diff) {
+ostream& operator << (ostream& os, const enemy& e) {
     os << "\nName: " << e.name << "\nMax Health: " << e.maxHealth 
-    << "\nHP: " <<  e.healthPoints << "\nDamage: " << e.attackDamage * e.level * diff << "\nLevel: " <<  e.level;
+    << "\nHP: " <<  e.healthPoints << "\nDamage: " << e.attackDamage * e.level << "\nLevel: " <<  e.level;
     return os;
 }
 

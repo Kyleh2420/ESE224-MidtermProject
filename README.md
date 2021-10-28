@@ -59,6 +59,7 @@
   * Made more of a mess in main.cpp
   * Added a little shop for the user to spend money on. Will read from the file weaponsList.txt.
   * Will read all the files into a vector using the weapon class. Will ask to see if the user would like to purchase the weapon. Changes the user profile.
+  * You can test the shop by adding coins to the player. Launch into the shop, then pause the program. In autos variables (Debug > Windows > Autos), change p1.balance to whatever you need. Then, press continue.
   * Changed player.setName back to string. Main.cpp now takes int he whole line using getline(), as opposed to just cin >>. Allows the user to use a space in their name.
   * Implemented framework of combat system
 # ESE224-MidtermProject

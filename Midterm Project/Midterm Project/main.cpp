@@ -3,28 +3,126 @@
 #include "Weapon.h"
 #include "floor.h"
 #include "randomEvents.h"
+#include <string>
+#include <vector>
 //player.h and scoreboard.h don't need to be called, since they are already called in fileOperations.h
 //If called again, it will result in a redefinition error
 using namespace std;
 
 
-//Enter Combat. WIll only exit when one of the following conditions are met:
-//1. The player Runs away
-//2. The player runs out of HP
-//3. The enemy runs out of hp
-void enterCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
-	cout << "Entering combat with " << e1 << endl;
-	cout << "Your stats: " << p1 << endl;
-}
+//Here, the user will be able to spend their coins on getting upgraded weapons.
+//This code uses a vector with the class Weapon to store all the information read from the file
+void weaponsShop(player& p1) {
+	//Every time we enter the weapons shop, take a look through the file as to what is available
+	//THis allows for the possiblity of a new weapon's shop on every floor.
+	//Thus, it is highly possible that an item that can be brought at a lower level (With more money than is available)
+	//is more op than one brought at a later leve. Kinda reminds me of SAO
+	vector<weapon> weaponsList;
+	fstream weaponFile;
+	string weaponFileName = "weaponsList.txt", item;
+	int cost, dmg, selection;
+	bool loop = true;
+	char acknowledge;
+	//Open the file, reset back to hand if file cannot be opened.
+	weaponFile.open(weaponFileName);
+	if (weaponFile.fail()) {
+		cerr << "We couldn't open the weapons file. You'll have to stick with your fist" << endl;
+		p1.setWeapon("Hand");
+		p1.setDMG(2);
+	}
 
+//Take in the weapon choices from the file to a vector
+	//Format is
+	//Damage, cost, string.
+	while (!weaponFile.eof()) {
+		weaponFile >>  dmg >> cost;
+		weaponFile.seekg(1, std::ios_base::cur);
+		getline(weaponFile, item);
+		weaponsList.push_back(weapon(item, dmg, cost));
+	}
+
+//This starts the buying process from the user.
+	while (loop) {
+		cout << "Your options: " << endl;
+		//Loop through the whole vector, display all the options to the user. Then, have the user make a selection
+		for (int i = 0; i < weaponsList.size(); i++) {
+			cout << i+1 << ". " <<  weaponsList[i].getItem() << ": " << weaponsList[i].getCost() << " coins, " << weaponsList[i].getDMG() << " damage." << endl;
+		}
+		cout << "You currently have " << p1.getBal() << "coins" << endl;
+		cout << "Enter 0 to exit the buying process. Please enter your selection: ";
+		cin >> selection;
+
+//If the user's selection is 0, then we know to exit the loop
+		if (selection == 0) {
+			loop = false;
+//Otherwise, let's check if the user can actually buy the item. If they can, then prompt them to ensure their purchase is correct
+		} else if (weaponsList[selection-1].getCost() > p1.getBal()) {
+			cout << "Sorry, you can't afford " << weaponsList[selection-1].getItem() << endl;
+		} else {
+			cout << "Ready to purchase " << weaponsList[selection-1].getItem() << "? Your new balance will be: " << p1.getBal() - weaponsList[selection-1].getCost() << ". Enter Y/N: ";
+			cin >> acknowledge;
+			acknowledge = tolower(acknowledge);
+			//The user has acknowledge that the purchase is valid. Change the player damage, and change the player's weapon name 
+			//Also modify the user's balance
+			if (acknowledge == 'y') {
+				p1.setDMG(weaponsList[selection-1].getDMG());
+				p1.setWeapon(weaponsList[selection-1].getItem());
+				p1.modBal(-weaponsList[selection-1].getCost());
+				cout << "You've brought " << weaponsList[selection-1].getItem() << "!" << endl;
+				loop = false;
+			} else {
+				cout << "Alright, we won't make that purchase." << endl;
+			}
+
+		}
+	}
+
+
+
+	
+}
 //The player will have 4 options
 //1. Examine themselves (Return HP/MaxHP, damage, and name)
 //	1a. Change weapon (Only in the beginning of the encounter) [At least that's what I want it to be]
 //2. Examine the enemy (Return Name, HP/Max HP, damage)
 //3. Attack 
 //4. Run Away
-void playerCombat(player&, weapon[4][4], enemy&, scoreboard&) {
-
+//Enter Combat. WIll only exit when one of the following conditions are met:
+//1. The player Runs away
+//2. The player runs out of HP
+//3. The enemy runs out of hp
+void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
+	bool loop = true;
+	int selection;
+	cout << "Entering combat with " << e1 << endl;
+	cout << "Your stats: " << p1 << endl;
+	while (loop) {
+		cout << "Please make a selection" 
+		<< "\n1 - Examine yourself"
+		<< "\n2 - Examine the enemy"
+		<< "\n3 - Attack"
+		<< "\n4 - Run Away"
+		<< "\nYour selection: ";
+		cin >> selection;
+		switch (selection) {
+			case 1:
+				cout << "\nExamine Yourself. Your stats: \n--------------" << p1 << endl;
+				break;
+			case 2: 
+				cout << "\nExamine the enemy. " << e1.getName() << "'s stats: \n-----------------\n" << e1 << endl;
+				break;
+			case 3:
+				cout << "Attack" << endl;
+				break;
+			case 4: 
+				cout << "Run Away." << endl;
+				loop = false;
+				break;
+			default:
+				cout << "That wasn't a selection! Please try again!" << endl;
+		}
+	}
+	
 }
 
 //The enemy will attack.
@@ -46,8 +144,9 @@ void playerOptions(player& p1, fileOperations& files, scoreboard& p1Scoreboard) 
 			<< "Please enter a number\n"
 			<< "1 - Examine Yourself\n"
 			<< "2 - See the Scoreboard\n"
-			<< "3 - Exit the menu\n"
-			<< "4 - Save and quit\nYour selection: ";
+			<< "3 - Enter the shop\n"
+			<< "4 - Exit the menu\n"
+			<< "5 - Save and quit\nYour selection: ";
 		cin >> selection;
 		switch (selection) {
 		case 1:
@@ -61,10 +160,15 @@ void playerOptions(player& p1, fileOperations& files, scoreboard& p1Scoreboard) 
 			loop = false;
 			break;
 		case 3:
+			cout << "\nYou selected 'Enter the shop'" << endl;
+			loop = false;
+			weaponsShop(p1);
+			break;
+		case 4:
 			cout << "\nYou selected 'Exit the menu'" << endl;
 			loop = false;
 			break;
-		case 4:
+		case 5:
 			cout << "\nYou selected 'Save and Quit'" << endl;
 			files.save2File(p1);
 			files.save2File(p1Scoreboard);
@@ -94,6 +198,7 @@ int main() {
 	//player p1 and scoreboard p1Scoreboard, respectively. It will then jump to
 	//playerOptions (The glorified pause menu) for file saving
 	char selection;
+	string entry;
     bool loop = true;
     while (loop) {
 			cout << "Would you like to create a new file or load a save file? "
@@ -108,7 +213,9 @@ int main() {
 					break;
 				case 'n': //New File is to be created. We must gather information about the user.
 					cout << "Please enter your player name: ";
-					p1.setName(cin);
+					cin.ignore();
+					std::getline(cin, entry);
+					p1.setName(entry);
 					while (loop) {
 						cout << "Please enter your difficulty level\nE - easy\nM - Medium\nH - Hard\nYour selection: ";
 						cin >> selection;
@@ -188,7 +295,7 @@ int main() {
 					// 		//a preset list. 
 					// 		//Ex: Fl1Enemies.txt and Fl1Weapons.txt both contain info about what is available on each floor	
 							enemy e1(p1Scoreboard.getFloor());
-					 		enterCombat(p1, e1, p1Scoreboard);
+					 		playerCombat(p1, e1, p1Scoreboard);
 					 		break;
 						}//These brackets are here to ger around the 
 						 //"Transfer of control bypasses intitalization of variable e1"

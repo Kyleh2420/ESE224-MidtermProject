@@ -54,6 +54,12 @@
   * Added random enemy selector to the default constructor. Now takes the floor level as input, and will generate a random enemy out of the selected text files.
   * Next steps: Upgrade weapon class to create a little shop for the user to spend their money to buy weapons.
   * Next steps: Integrate an actual combat sequence. Each hp drained from the enemy is another coin in the player's pocket.
+#### 10/27
+* Kyle
+  * Made more of a mess in main.cpp
+  * Added a little shop for the user to spend money on. Will read from the file weaponsList.txt.
+  * Will read all the files into a vector using the weapon class. Will ask to see if the user would like to purchase the weapon. Changes the user profile.
+  * Changed player.setName back to string. Main.cpp now takes int he whole line using getline(), as opposed to just cin >>. Allows the user to use a space in their name.
 
 # ESE224-MidtermProject
 

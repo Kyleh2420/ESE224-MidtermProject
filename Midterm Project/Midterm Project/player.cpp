@@ -6,6 +6,7 @@ player::player() {
     maxHealth = 10;
     healthPoints = 10;
     attackDamage = 2;
+    weaponName = "Hand";
     balance = 0;
 }
 
@@ -28,11 +29,14 @@ int player::getDMG() {
 int player::getBal() {
     return balance;
 }
+string player::getWeapon() {
+    return weaponName;
+}
 
 
 //Setters!
-void player::setName(istream& in) {
-    in >> name;
+void player::setName(string in) {
+    name = in;
 }
 void player::setMaxHP(int input) {
     maxHealth = input;
@@ -46,6 +50,9 @@ void player::setDMG(int input) {
 }
 void player::setBal(int input) {
     balance = input;
+}
+void player::setWeapon(string in) {
+    weaponName = in;
 }
 
 
@@ -76,7 +83,8 @@ void player::modBal(int input) {
 
 ostream& operator <<(ostream& os, const player& p) {
     os << "\nName: " << p.name << "\nMax Health: " << p.maxHealth 
-    << "\nHP: " <<  p.healthPoints << "\nDamage: " << p.attackDamage
-    << "\nBalance: " << p.balance << endl;
+    << "\nHP: " <<  p.healthPoints << "\nWeapon: " << p.weaponName
+    << "\nDamage: " << p.attackDamage <<"\nBalance: " << p.balance
+    << endl;
     return os;
 }

@@ -9,6 +9,7 @@ using namespace std;
 int randomEvents::getLineCount() {
 	while (!eventsFile.eof()) {
 		eventsFile >> hpChange >> balChange;
+		eventsFile.seekg(1, std::ios_base::cur);
 		getline(eventsFile, line);
 		lines.push_back(line);
 		hpList.push_back(hpChange);

@@ -10,9 +10,9 @@ void fileOperations::save2File(player& input) {
         exit(1);
     }
     pmyFile << input.getName() << "\n"
+            << input.getWeapon() << "\n"
             << input.getMaxHP() << "\n"
             << input.getHP() << "\n"
-            << input.getWeapon() << "\n"
             << input.getDMG() << "\n"
             << input.getBal() << endl;
     closeFile();
@@ -41,13 +41,15 @@ void fileOperations::chooseFile(scoreboard& s, player& p) {
         exit(1);
     }
     getline(pmyFile, inputString);
+    //pmyFile >> inputString;
     p.setName(inputString);
+    getline(pmyFile, inputString);
+    p.setWeapon(inputString);
     pmyFile >> inputInt;
     p.setMaxHP(inputInt);
     pmyFile >> inputInt;
     p.setHP(inputInt);
-    getline(pmyFile, inputString);
-    p.setWeapon(inputString);
+    //pmyFile >> inputString;
     pmyFile >> inputInt;
     p.setDMG(inputInt);
     pmyFile >> inputInt;

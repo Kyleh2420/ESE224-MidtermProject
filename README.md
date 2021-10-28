@@ -1,17 +1,11 @@
 # Current To Do List
-* Need to work on loading a file
-   * See [Journal Entry 10/28](#10/28)
-  * System loads everything, but fails to load the whole line as a string.
-  * Ex: Player Name (Saved to file) is: Hello World
-  * with cin, we just read "Hello", and then the next int reading does nothing
-  * with getline, it just flat out fails...
-  * See line 44 and 50 of fileOperations.cpp
-* Implement the difficulty functionality
+ Implement the difficulty functionality
    * I haven't touched anything with the difficulty yet. I have no idea how to implement it.
    * One idea I had was to modify the number of steps per floor (Also modifying the probability statistics with it), but that seems like a lot of work.
    * Another is modifying the enemy's attack, but that's also a lot of work. Also kind of unfair.
 * Finish up implementing possible random scenerios and enemies, add more weapons etc. 
    * Tell the story! Include dev notes, char development, char senses (Visual, smell, etc). See the reference game below.
+* Possible memory leak when reading in empty file
 # Reference Game: https://web.simple-mmo.com/
 
 # JOURNAL
@@ -87,6 +81,9 @@
     * See lines 44 and 50 of fileOperations.cpp. 
     * Attempted to solve with getline(), didn't work.
     * Already 35 minutes late to class... Will solve after I guess.
+  * Kyle (Again Again Again!)
+    * Solved it! 
+    * I don't know what it was, but I moved all the strings to be saved in the same place (Name, Weapon, MaxHP, HP, attack, Balance), and it worked fine.
 # ESE224-MidtermProject
 
 Stony Brook University's ESE 224 Midterm Project

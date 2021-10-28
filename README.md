@@ -62,6 +62,14 @@
   * You can test the shop by adding coins to the player. Launch into the shop, then pause the program. In autos variables (Debug > Windows > Autos), change p1.balance to whatever you need. Then, press continue.
   * Changed player.setName back to string. Main.cpp now takes int he whole line using getline(), as opposed to just cin >>. Allows the user to use a space in their name.
   * Implemented framework of combat system
+#### 10/28
+ * Kyle
+   * Spilled alphabet soup all over main.cpp
+   * Added combat system - enemy now attacks player and player now attacks enemy
+   * Enemy combat is exited when the enemy dies
+   * Next steps: Detect when the player dies, then quit the game
+   * Next steps: Add loading file functionality
+   * Clean up user interface/comment all code, then start the project report
 # ESE224-MidtermProject
 
 Stony Brook University's ESE 224 Midterm Project

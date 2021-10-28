@@ -1,6 +1,6 @@
 # Current To Do List
 * Need to work on loading a file (Around line 41 of main.cpp)
- * See [This Journal Entry] (#10/28)
+ * See [This Journal Entry](#10/28)
   * System loads everything, but fails to load the whole line as a string.
   * Ex: Player Name (Saved to file) is: Hello World
   * with cin, we just read "Hello", and then the next int reading does nothing

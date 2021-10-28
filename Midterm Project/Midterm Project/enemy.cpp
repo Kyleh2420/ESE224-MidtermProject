@@ -74,6 +74,9 @@ int enemy::getHP() {
 int enemy::getDMG() {
     return attackDamage;
 }
+int enemy::getLvl() {
+    return level;
+}
 
 //Setters!
 void enemy::setName(string input) {
@@ -95,8 +98,9 @@ void enemy::setLvl(int input) {
 //Modifiers
 void enemy::modHealth(int input) {
     healthPoints += input;
-    if (healthPoints > maxHealth)
+    if (healthPoints > maxHealth) {
         healthPoints = maxHealth;
+    }
 }
 
 void enemy::modDamage(int input) {
@@ -106,9 +110,9 @@ void enemy::modDamage(int input) {
     }
 }
 
-ostream& operator << (ostream& os, const enemy& e) {
+ostream& operator << (ostream& os, const enemy& e, int diff) {
     os << "\nName: " << e.name << "\nMax Health: " << e.maxHealth 
-    << "\nHP: " <<  e.healthPoints << "\nDamage: " << e.attackDamage << "\nLevel: " <<  e.level;
+    << "\nHP: " <<  e.healthPoints << "\nDamage: " << e.attackDamage * e.level * diff << "\nLevel: " <<  e.level;
     return os;
 }
 

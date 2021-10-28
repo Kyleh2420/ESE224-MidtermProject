@@ -81,6 +81,24 @@ void weaponsShop(player& p1) {
 
 	
 }
+
+//The enemy will attack.
+//Decrease player's HP according to enemy's level and AD
+//Check if player is dead
+bool enemyCombat(enemy& e1, player& p1, scoreboard& p1Scoreboard) {
+	cout << "The enemy attacked you. " << -e1.getDMG() << " HP." << endl;
+	p1.modHealth(-e1.getDMG() * e1.getLvl() * p1Scoreboard.getDiff());
+	//If the user has died, then return false
+	if (p1.getHP() <= 0) {
+		return false;
+	}
+	else {
+		//The user is not dead yet. Keep the battle going
+		return true;
+	}
+}
+
+
 //The player will have 4 options
 //1. Examine themselves (Return HP/MaxHP, damage, and name)
 //	1a. Change weapon (Only in the beginning of the encounter) [At least that's what I want it to be]
@@ -112,7 +130,24 @@ void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
 				cout << "\nExamine the enemy. " << e1.getName() << "'s stats: \n-----------------\n" << e1 << endl;
 				break;
 			case 3:
+			//The player attacks the enemy.
 				cout << "Attack" << endl;
+				//Since we are adding coins ad scores according to the damage that the player does,
+				//We need an ifstatement to see if the damage that the player does is way above the enemys HP.
+				//If it is, then only add the rest of the player's HP and kill the enemy
+				if (e1.getHP() <= p1.getDMG()) {
+					p1Scoreboard.addScore(e1.getHP());
+					p1.modBal(e1.getHP());
+					cout << "The enemy has died!"
+						<< "You have earned " << e1.getMaxHP() << " coins." << endl;
+					loop = false;
+				} else {
+					p1Scoreboard.addScore(p1.getDMG());
+					p1.modBal(p1.getDMG());
+					cout << "You attacked the enemy, -" << p1.getDMG() << endl;
+					loop = enemyCombat(e1, p1, p1Scoreboard);
+				}
+				e1.modHealth(-p1.getDMG());
 				break;
 			case 4: 
 				cout << "Run Away." << endl;
@@ -125,12 +160,7 @@ void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
 	
 }
 
-//The enemy will attack.
-//Decrease player's HP according to enemy's level and AD
-//Check if player is dead
-bool enemyCombat(enemy&, player&, scoreboard&) {
-	return false;
-}
+
 
 //This function is essentially a pause menu. The player has the following options:
 //1. Examine themselves
@@ -217,23 +247,23 @@ int main() {
 					std::getline(cin, entry);
 					p1.setName(entry);
 					while (loop) {
-						cout << "Please enter your difficulty level\nE - easy\nM - Medium\nH - Hard\nYour selection: ";
+						cout << "Please enter your difficulty level\n1 - easy\n2 - Medium\n3 - Hard\nYour selection: ";
 						cin >> selection;
 						selection = tolower(selection);
 						switch(selection){
-							case 'e':
+							case '1':
 								cout << "Difficulty set to easy" << endl;
-								p1Scoreboard.setDiff("Easy");
+								p1Scoreboard.setDiff(1);
 								loop = false;
 								break;
-							case 'm':
+							case '2':
 								cout << "Difficulty set to medium" << endl;
-								p1Scoreboard.setDiff("Medium");
+								p1Scoreboard.setDiff(2);
 								loop = false;
 								break;
-							case 'h':
+							case '3':
 								cout << "Difficulty set to hard" << endl;
-								p1Scoreboard.setDiff("Hard");
+								p1Scoreboard.setDiff(3);
 								loop = false;
 								break;
 							default:

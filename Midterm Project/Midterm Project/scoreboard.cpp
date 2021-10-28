@@ -2,7 +2,7 @@
 
 scoreboard::scoreboard() {
     sbScore = 0;
-    sbDifficulty = "";
+    sbDifficulty = 1;
     sbDifficultyMod = 0;
     sbFloor = 0;
     sbPos = 0;
@@ -11,7 +11,7 @@ scoreboard::scoreboard() {
 void scoreboard::setScore(int input) {
     sbScore = input;
 }
-void scoreboard::setDiff(string input) {
+void scoreboard::setDiff(int input) {
     sbDifficulty = input;
 }
 void scoreboard::setDiffMod(int input) {
@@ -27,7 +27,7 @@ void scoreboard::setPos(int input) {
 int scoreboard::getScore() {
     return sbScore;
 }
-string scoreboard::getDiff() {
+int scoreboard::getDiff() {
     return sbDifficulty;
 }
 int scoreboard::getDiffMod() {
@@ -51,6 +51,21 @@ void scoreboard::sbOut() {
 }
 
 ostream& operator <<(ostream& os, const scoreboard& s) {
+    string tmp;
+    switch (s.sbDifficulty) {
+        case 1:
+            tmp = "Easy";
+            break;
+        case 2:
+            tmp = "Medium";
+            break;
+        case 3:
+            tmp = "Hard";
+            break;
+        default:
+            tmp = "I don't know what this difficulty is";
+
+    }
     os << "\nCurrent Score: " << s.sbScore << "\nCurrent Difficulty: " << s.sbDifficulty
     << "\nFloor Level: " << s.sbFloor << "\nPosition: " << s.sbPos;
     return os;

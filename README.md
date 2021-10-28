@@ -60,7 +60,7 @@
   * Added a little shop for the user to spend money on. Will read from the file weaponsList.txt.
   * Will read all the files into a vector using the weapon class. Will ask to see if the user would like to purchase the weapon. Changes the user profile.
   * Changed player.setName back to string. Main.cpp now takes int he whole line using getline(), as opposed to just cin >>. Allows the user to use a space in their name.
-
+  * Implemented framework of combat system
 # ESE224-MidtermProject
 
 Stony Brook University's ESE 224 Midterm Project

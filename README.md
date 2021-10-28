@@ -8,8 +8,8 @@
   * See line 44 and 50 of fileOperations.cpp
 * Implement the difficulty functionality
    * I haven't touched anything with the difficulty yet. I have no idea how to implement it.
- * One idea I had was to modify the number of steps per floor (Also modifying the probability statistics with it), but that seems like a lot of work.
- * Another is modifying the enemy's attack, but that's also a lot of work. Also kind of unfair.
+   * One idea I had was to modify the number of steps per floor (Also modifying the probability statistics with it), but that seems like a lot of work.
+   * Another is modifying the enemy's attack, but that's also a lot of work. Also kind of unfair.
 * Finish up implementing possible random scenerios and enemies, add more weapons etc. 
    * Tell the story! Include dev notes, char development, char senses (Visual, smell, etc). See the reference game below.
 # Reference Game: https://web.simple-mmo.com/

@@ -14,7 +14,6 @@ int randomEvents::getLineCount() {
 		lines.push_back(line);
 		hpList.push_back(hpChange);
 		balList.push_back(balChange);
-
 	}
 	line = "";
 	cout << "Line count is: " << lines.size() << endl;

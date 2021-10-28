@@ -70,6 +70,18 @@
    * Next steps: Detect when the player dies, then quit the game
    * Next steps: Add loading file functionality
    * Clean up user interface/comment all code, then start the project report
+  * Kyle (Again)
+    * Detected when player dies, will quit game in player.cpp
+    * Next steps: Add file loading functionality, clean up code
+    * Somehow use the difficulty selector as a part of the code
+    * Debug
+  * Kyle (Again Again)
+    * Partially added file loading functionality
+    * Works, kind of, but fails to read the whole line of the player's save file for the strings, making strings that should have spaces miss the rest of the phrase. 
+      * It also makes the rest of the ints that come after go missing (Since we read in the next group until the delimiter space, and it's not an int)
+    * See lines 44 and 50 of fileOperations.cpp. 
+    * Attempted to solve with getline(), didn't work.
+    * Already 35 minutes late to class... Will solve after I guess.
 # ESE224-MidtermProject
 
 Stony Brook University's ESE 224 Midterm Project

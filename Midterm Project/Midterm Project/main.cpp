@@ -211,12 +211,6 @@ void playerOptions(player& p1, fileOperations& files, scoreboard& p1Scoreboard) 
 		}
 	}
 }
-
-//Changes weapon
-void chooseWeapon(weapon[4][4], int, player&) {
-
-}
-
 int main() {
 	player p1;
 	scoreboard p1Scoreboard;
@@ -237,8 +231,10 @@ int main() {
 			selection = tolower(selection); //Lowercase everything to limit the number of cases
 			switch(selection) {
 				case 'l':
-					p1Scoreboard.setFloor(0);
-					p1Scoreboard.setPos(2);
+					cout << "Please enter the savefile name: ";
+					files.setPName(cin);
+					files.chooseFile(p1Scoreboard, p1);
+
 					loop = false;
 					break;
 				case 'n': //New File is to be created. We must gather information about the user.

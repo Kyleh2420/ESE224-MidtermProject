@@ -9,7 +9,6 @@ class scoreboard {
         int sbScore;
         int sbDifficulty;
         //Difficulty of the game
-        int sbDifficultyMod;
         //Keeps track of the area in the game wich the player is at 
         int sbFloor;
         //Keeps track of what position on the floor the player is at
@@ -22,14 +21,12 @@ class scoreboard {
         //Setters!
         void setScore(int input);
         void setDiff(int input);
-        void setDiffMod(int input);
         void setFloor(int input);
         void setPos(int input);
 
         //Getters!
         int getScore();
         int getDiff();
-        int getDiffMod();
         int getFloor();
         int getPos();
 

@@ -12,6 +12,7 @@ void fileOperations::save2File(player& input) {
     pmyFile << input.getName() << "\n"
             << input.getMaxHP() << "\n"
             << input.getHP() << "\n"
+            << input.getWeapon() << "\n"
             << input.getDMG() << "\n"
             << input.getBal() << endl;
     closeFile();
@@ -26,14 +27,48 @@ void fileOperations::save2File(scoreboard& input) {
     }
     sb_myFile   << input.getScore() << "\n"
                 << input.getDiff() << "\n"
-                << input.getDiffMod() << "\n"
                 << input.getFloor() << "\n"
                 << input.getPos() << endl;
     closeFile();
 }
 
 void fileOperations::chooseFile(scoreboard& s, player& p) {
+    string inputString = "";
+    int inputInt = 0;
+    pmyFile.open(pFileName, ios::in);
+    if (pmyFile.fail()) {
+        cerr << "Error opening the player file!" << endl;
+        exit(1);
+    }
+    getline(pmyFile, inputString);
+    p.setName(inputString);
+    pmyFile >> inputInt;
+    p.setMaxHP(inputInt);
+    pmyFile >> inputInt;
+    p.setHP(inputInt);
+    getline(pmyFile, inputString);
+    p.setWeapon(inputString);
+    pmyFile >> inputInt;
+    p.setDMG(inputInt);
+    pmyFile >> inputInt;
+    p.setBal(inputInt);
 
+
+    sb_myFile.open(sbFileName, ios::in);
+    if (sb_myFile.fail()) {
+        cerr << "Error opening the player file!" << endl;
+        exit(1);
+    }
+    sb_myFile >> inputInt;
+    s.setScore(inputInt);
+    sb_myFile >> inputInt;
+    s.setDiff(inputInt);
+    sb_myFile >> inputInt;
+    s.setFloor(inputInt);
+    sb_myFile >> inputInt;
+    s.setPos(inputInt);
+ 
+    closeFile();
 }
 void fileOperations::closeFile() {
     sb_myFile.close();

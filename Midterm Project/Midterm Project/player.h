@@ -38,7 +38,7 @@ public:
 	void setWeapon(string in);
 
 	//Modifies player's HP with the input value
-	void modHealth(int input);
+	bool modHealth(int input);
 	//Modifies player's base damage with an input value
 	void modDamage(int input);
 	//Modifies player's money balance

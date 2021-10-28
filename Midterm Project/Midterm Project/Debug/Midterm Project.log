@@ -1,6 +1,2 @@
-﻿  enemy.cpp
-D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Midterm Project\enemy.cpp(138,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  main.cpp
-D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Midterm Project\main.cpp(48,21): warning C4018: '<': signed/unsigned mismatch
-  Generating Code...
+﻿  player.cpp
   Midterm Project.vcxproj -> D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Debug\Midterm Project.exe

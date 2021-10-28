@@ -336,7 +336,12 @@ int main() {
 							//Generates a random line out of the list
 							event.getRandom();
 							//The following affects the users stats
-							p1.modHealth(event.getHPChange());
+							//Loop will become false when the user has died, stopping the main game loop from operating
+							loop = p1.modHealth(event.getHPChange());
+							//The following will check if the user has died or not, and exit the floor
+							if (!loop) {
+								break;
+							}
 							p1.modBal(event.getBalChange());
 							//The following is user interface
 							cout << event.getEvent() << endl;
@@ -362,22 +367,25 @@ int main() {
 
 		}
 		//Once we exit the above loop, we know that the user has completed the floor (Has advanced as far as they can on the floor)
-
-
-
-
-		//Increases the floor count by 1
-		p1Scoreboard.setFloor(p1Scoreboard.getFloor()+1);
-		//Resets the player's position on the floor back to the beginning
-		p1Scoreboard.setPos(0);
-		//We can check if the user has reached the last floor. If they have, then we can exit the main game loop
-		//If the user has reached the last floor, we can confirm the user has completed the game!
-		if (p1Scoreboard.getFloor() == 4) {
-			loop = false;
-			cout << "Congrats, you've passed the game!"<< endl;
-			break;
-		}
+		//Or the user has died, and we just exited the loop. Check p1.health's status to determine which one
 		
+		//user has died
+		if (p1.getHP() <= 0) {
+			cout << "We're sorry that the game is over for you. You're more than able go and restart it!" << endl;
+		}
+		else {
+			//Increases the floor count by 1
+			p1Scoreboard.setFloor(p1Scoreboard.getFloor() + 1);
+			//Resets the player's position on the floor back to the beginning
+			p1Scoreboard.setPos(0);
+			//We can check if the user has reached the last floor. If they have, then we can exit the main game loop
+			//If the user has reached the last floor, we can confirm the user has completed the game!
+			if (p1Scoreboard.getFloor() == 4) {
+				loop = false;
+				cout << "Congrats, you've passed the game!" << endl;
+				break;
+			}
+		}
 
 	}
 	

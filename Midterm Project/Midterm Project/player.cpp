@@ -59,12 +59,18 @@ void player::setWeapon(string in) {
 //Modifiers
 //The input must be a signed number, either adding hp or removing hp.
 //You cannot add more HP than the maxHealth
-void player::modHealth(int input) {
+//Returns false if the user has died, returns true otherwise
+bool player::modHealth(int input) {
     healthPoints += input;
     if (healthPoints > maxHealth)
         healthPoints = maxHealth;
-    if (healthPoints <= 0)
+    if (healthPoints <= 0) {
         cout << "We're sorry, you have died!" << endl;
+        cout << "The game has now ended, but you can always restart!" << endl;
+        exit (0);
+        return false;
+    }
+    return true;
 }
 
 //Damage Modifier: Input is a signed interger. Attack damage cannot be lower than 0

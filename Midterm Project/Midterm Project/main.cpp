@@ -111,7 +111,7 @@ bool enemyCombat(enemy& e1, player& p1, scoreboard& p1Scoreboard) {
 //3. The enemy runs out of hp
 void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
 	bool loop = true;
-	int selection;
+	char selection;
 	cout << "Entering combat with " << e1 << endl;
 	cout << "Your stats: " << p1 << endl;
 	while (loop) {
@@ -123,13 +123,13 @@ void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
 		<< "\nYour selection: ";
 		cin >> selection;
 		switch (selection) {
-			case 1:
+			case '1':
 				cout << "\nExamine Yourself. Your stats: \n--------------" << p1 << endl;
 				break;
-			case 2: 
+			case '2': 
 				cout << "\nExamine the enemy. " << e1.getName() << "'s stats: \n-----------------\n" << e1 << endl;
 				break;
-			case 3:
+			case '3':
 			//The player attacks the enemy.
 				cout << "Attack" << endl;
 				//Since we are adding coins ad scores according to the damage that the player does,
@@ -149,7 +149,7 @@ void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
 				}
 				e1.modHealth(-p1.getDMG());
 				break;
-			case 4: 
+			case '4': 
 				cout << "Run Away." << endl;
 				loop = false;
 				break;

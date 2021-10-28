@@ -167,7 +167,7 @@ void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
 //2. See the scorboard
 //3. Save and Quit
 void playerOptions(player& p1, fileOperations& files, scoreboard& p1Scoreboard) {
-	int selection;
+	char selection;
 	bool loop = true;
 	while (loop) {
 		cout << "Pause menu\n---------------\n"
@@ -179,26 +179,26 @@ void playerOptions(player& p1, fileOperations& files, scoreboard& p1Scoreboard) 
 			<< "5 - Save and quit\nYour selection: ";
 		cin >> selection;
 		switch (selection) {
-		case 1:
+		case '1':
 			cout << "\nYou selected 'Examine Yourself'" << endl;
 			cout << p1 << endl;
 			loop = false;
 			break;
-		case 2:
+		case '2':
 			cout << "\nYou selected 'See the scoreboard'" << endl;
 			cout << p1Scoreboard << endl;
 			loop = false;
 			break;
-		case 3:
+		case '3':
 			cout << "\nYou selected 'Enter the shop'" << endl;
 			loop = false;
 			weaponsShop(p1);
 			break;
-		case 4:
+		case '4':
 			cout << "\nYou selected 'Exit the menu'" << endl;
 			loop = false;
 			break;
-		case 5:
+		case '5':
 			cout << "\nYou selected 'Save and Quit'" << endl;
 			files.save2File(p1);
 			files.save2File(p1Scoreboard);

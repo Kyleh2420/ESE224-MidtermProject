@@ -1,2 +1,16 @@
-﻿  randomEvents.cpp
+﻿  enemy.cpp
+  fileOperations.cpp
+  floor.cpp
+C:\Users\d4ng9\Desktop\ESE224 - Midterm Project\Midterm Project\Midterm Project\floor.cpp(41,19): warning C4244: 'initializing': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+C:\Users\d4ng9\Desktop\ESE224 - Midterm Project\Midterm Project\Midterm Project\floor.cpp(45,23): warning C4018: '<': signed/unsigned mismatch
+  main.cpp
+  player.cpp
+  randomEvents.cpp
+  scoreboard.cpp
+  weapon.cpp
+  Generating Code...
   Midterm Project.vcxproj -> C:\Users\d4ng9\Desktop\ESE224 - Midterm Project\Midterm Project\Debug\Midterm Project.exe

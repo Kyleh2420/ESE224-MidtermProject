@@ -1,3 +1,3 @@
-﻿  main.cpp
-D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Midterm Project\main.cpp(53,21): warning C4018: '<': signed/unsigned mismatch
+﻿  randomComment.cpp
+D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Midterm Project\randomComment.cpp(85,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   Midterm Project.vcxproj -> D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Debug\Midterm Project.exe

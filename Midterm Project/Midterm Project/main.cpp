@@ -3,6 +3,7 @@
 #include "Weapon.h"
 #include "floor.h"
 #include "randomEvents.h"
+#include "randomComment.h"
 #include <string>
 #include <vector>
 #include <iomanip>
@@ -314,6 +315,8 @@ int main() {
 		gameFloor playGame(p1Scoreboard.getFloor(), p1Scoreboard.getPos());
 		//Opens a file for the randomEvents that may occur (With tile 2)
 		randomEvents event(p1Scoreboard.getFloor());
+		//Opens the randomComments file
+		randomComment quirkyComment(p1Scoreboard.getFloor());
 		//Primes the random event selector with the selector
 		cout << "The current floor is: " << p1Scoreboard.getFloor() << endl;
 		//We stay in this while loop as long as the usre has not reached the maximum position 
@@ -376,7 +379,9 @@ int main() {
 					 	case 0:
 					 	default:
 					// 		//QuIrKy comments need to be read from a file as well
-					 		cout << "Quirky comment here" << endl;
+					 		//cout << "Quirky comment here" << endl;
+							quirkyComment.getRandom();
+							cout << quirkyComment.getEvent() << endl;
 					// 		break;
 					}
 					break;

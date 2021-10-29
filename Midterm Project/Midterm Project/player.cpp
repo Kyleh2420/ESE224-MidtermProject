@@ -6,6 +6,7 @@ player::player() {
     maxHealth = 10;
     healthPoints = 10;
     attackDamage = 2;
+    weaponName = "Hand";
     balance = 0;
 }
 
@@ -28,11 +29,14 @@ int player::getDMG() {
 int player::getBal() {
     return balance;
 }
+string player::getWeapon() {
+    return weaponName;
+}
 
 
 //Setters!
-void player::setName(istream& in) {
-    in >> name;
+void player::setName(string in) {
+    name = in;
 }
 void player::setMaxHP(int input) {
     maxHealth = input;
@@ -47,15 +51,26 @@ void player::setDMG(int input) {
 void player::setBal(int input) {
     balance = input;
 }
+void player::setWeapon(string in) {
+    weaponName = in;
+}
 
 
 //Modifiers
 //The input must be a signed number, either adding hp or removing hp.
 //You cannot add more HP than the maxHealth
-void player::modHealth(int input) {
+//Returns false if the user has died, returns true otherwise
+bool player::modHealth(int input) {
     healthPoints += input;
     if (healthPoints > maxHealth)
         healthPoints = maxHealth;
+    if (healthPoints <= 0) {
+        cout << "We're sorry, you have died!" << endl;
+        cout << "The game has now ended, but you can always restart!" << endl;
+        exit (0);
+        return false;
+    }
+    return true;
 }
 
 //Damage Modifier: Input is a signed interger. Attack damage cannot be lower than 0
@@ -73,7 +88,9 @@ void player::modBal(int input) {
 }
 
 ostream& operator <<(ostream& os, const player& p) {
-    os << "Name: " << p.name << "Max Health: " << p.maxHealth 
-    << "HP: " <<  p.healthPoints << "Damage: " << p.attackDamage;
+    os << "\nName: " << p.name << "\nMax Health: " << p.maxHealth 
+    << "\nHP: " <<  p.healthPoints << "\nWeapon: " << p.weaponName
+    << "\nDamage: " << p.attackDamage <<"\nBalance: " << p.balance
+    << endl;
     return os;
 }

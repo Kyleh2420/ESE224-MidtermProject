@@ -9,8 +9,11 @@ using namespace std;
 int randomEvents::getLineCount() {
 	while (!eventsFile.eof()) {
 		eventsFile >> hpChange >> balChange;
+		eventsFile.seekg(1, std::ios_base::cur);
 		getline(eventsFile, line);
 		lines.push_back(line);
+		hpList.push_back(hpChange);
+		balList.push_back(balChange);
 	}
 	line = "";
 	cout << "Line count is: " << lines.size() << endl;
@@ -19,8 +22,8 @@ int randomEvents::getLineCount() {
 
 
 randomEvents::randomEvents(int floorLevel) {
-	cout << "In randomEvents.cpp, the floor level is: " << floorLevel << endl;
-		switch (floorLevel) {
+	//cout << "In randomEvents.cpp, the floor level is: " << floorLevel << endl;
+	switch (floorLevel) {
 		case 0:
 			eventsFileName = "F0RandomEvents.txt";
 			cout << "Opening " << eventsFileName << endl;
@@ -61,6 +64,7 @@ randomEvents::randomEvents(int floorLevel) {
 			cout << "Well that wasn't supposed to happen. We couldn't find that floor!" << endl;
 			break;
 		}
+		//Once we select the file, push everything back into a vector
 		getLineCount();
 }
 
@@ -77,6 +81,18 @@ string randomEvents::getEvent() {
 	}
 	cout << eventsFileName << endl;
 	*/
-	int randomNum = rand() % lines.size();
-	return lines[randomNum];
+
+	return lines[selector];
+}
+
+int randomEvents::getHPChange() {
+	return hpList[selector];
+}
+int randomEvents::getBalChange() {
+	return balList[selector];
+}
+
+void randomEvents::getRandom() {
+	srand(time(0));
+	selector = rand() % lines.size();
 }

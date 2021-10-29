@@ -1,13 +1,12 @@
 # Current To Do List
-- [ ] Need to understand how the scoreboard is going to work to keep track of things.
-- [ ] New File has already been done (Need to set up scoreboard for new file)
-- [ ] Need to work on loading a file (Around line 41 of main.cpp)
-- [ ] Work on the various floors
-  *  Floor Level Creation according to statistics
-  *  takeStep() function, which reads from a file a random list of possible outputs, including dev notes, character development, or character senses (Visual, smell, etc). See Reference game below
-  * Tracking current users position
-* See floor psuedo code below. Then, implement the random events of take a step
-* Reference Game: https://web.simple-mmo.com/
+ Implement the difficulty functionality
+   * I haven't touched anything with the difficulty yet. I have no idea how to implement it.
+   * One idea I had was to modify the number of steps per floor (Also modifying the probability statistics with it), but that seems like a lot of work.
+   * Another is modifying the enemy's attack, but that's also a lot of work. Also kind of unfair.
+* Finish up implementing possible random scenerios and enemies, add more weapons etc. 
+   * Tell the story! Include dev notes, char development, char senses (Visual, smell, etc). See the reference game below.
+* Possible memory leak when reading in empty file
+# Reference Game: https://web.simple-mmo.com/
 
 # JOURNAL
 #### 10/21
@@ -49,7 +48,42 @@
   * changed how we read from randomEvents text file. We read two int values for hp and balance changes and then a string phrase for the text line to display.
   * migrated lines storage to a vector instead of an array.
   * fixed(hopefully) getRandomEvents().
-
+#### 10/26
+* Kyle
+  * Added random enemy selector to the default constructor. Now takes the floor level as input, and will generate a random enemy out of the selected text files.
+  * Next steps: Upgrade weapon class to create a little shop for the user to spend their money to buy weapons.
+  * Next steps: Integrate an actual combat sequence. Each hp drained from the enemy is another coin in the player's pocket.
+#### 10/27
+* Kyle
+  * Made more of a mess in main.cpp
+  * Added a little shop for the user to spend money on. Will read from the file weaponsList.txt.
+  * Will read all the files into a vector using the weapon class. Will ask to see if the user would like to purchase the weapon. Changes the user profile.
+  * You can test the shop by adding coins to the player. Launch into the shop, then pause the program. In autos variables (Debug > Windows > Autos), change p1.balance to whatever you need. Then, press continue.
+  * Changed player.setName back to string. Main.cpp now takes int he whole line using getline(), as opposed to just cin >>. Allows the user to use a space in their name.
+  * Implemented framework of combat system
+#### 10/28
+ * Kyle
+   * Spilled alphabet soup all over main.cpp
+   * Added combat system - enemy now attacks player and player now attacks enemy
+   * Enemy combat is exited when the enemy dies
+   * Next steps: Detect when the player dies, then quit the game
+   * Next steps: Add loading file functionality
+   * Clean up user interface/comment all code, then start the project report
+  * Kyle (Again)
+    * Detected when player dies, will quit game in player.cpp
+    * Next steps: Add file loading functionality, clean up code
+    * Somehow use the difficulty selector as a part of the code
+    * Debug
+  * Kyle (Again Again)
+    * Partially added file loading functionality
+    * Works, kind of, but fails to read the whole line of the player's save file for the strings, making strings that should have spaces miss the rest of the phrase. 
+      * It also makes the rest of the ints that come after go missing (Since we read in the next group until the delimiter space, and it's not an int)
+    * See lines 44 and 50 of fileOperations.cpp. 
+    * Attempted to solve with getline(), didn't work.
+    * Already 35 minutes late to class... Will solve after I guess.
+  * Kyle (Again Again Again!)
+    * Solved it! 
+    * I don't know what it was, but I moved all the strings to be saved in the same place (Name, Weapon, MaxHP, HP, attack, Balance), and it worked fine.
 # ESE224-MidtermProject
 
 Stony Brook University's ESE 224 Midterm Project

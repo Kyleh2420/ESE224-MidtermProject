@@ -1,0 +1,2 @@
+5 3 1 1 Weak Dementor
+7 7 2 1 Strong Dementor

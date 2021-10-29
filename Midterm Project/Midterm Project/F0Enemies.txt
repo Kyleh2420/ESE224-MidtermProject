@@ -1,2 +1,5 @@
-5 3 1 1 Weak Dementor
-7 7 2 1 Strong Dementor
+7 3 1 1 Weak Dementor
+7 7 3 2 Strong Dementor
+3 3 3 1 A single goblin
+6 6 3 2 Hoard of Goblins
+4 3 2 1 Bats

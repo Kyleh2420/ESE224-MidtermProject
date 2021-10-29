@@ -5,6 +5,7 @@
 #include "randomEvents.h"
 #include <string>
 #include <vector>
+#include <iomanip>
 //player.h and scoreboard.h don't need to be called, since they are already called in fileOperations.h
 //If called again, it will result in a redefinition error
 using namespace std;
@@ -21,6 +22,7 @@ void weaponsShop(player& p1) {
 	fstream weaponFile;
 	string weaponFileName = "weaponsList.txt", item;
 	int cost, dmg, selection;
+	int maxHP, HP;
 	bool loop = true;
 	char acknowledge;
 	//Open the file, reset back to hand if file cannot be opened.
@@ -35,23 +37,37 @@ void weaponsShop(player& p1) {
 	//Format is
 	//Damage, cost, string.
 	while (!weaponFile.eof()) {
-		weaponFile >>  dmg >> cost;
+		weaponFile >> cost >> dmg >> maxHP >> HP;
 		weaponFile.seekg(1, std::ios_base::cur);
 		getline(weaponFile, item);
-		weaponsList.push_back(weapon(item, dmg, cost));
+		weaponsList.push_back(weapon(item, dmg, cost, maxHP, HP));
 	}
 
 //This starts the buying process from the user.
 	while (loop) {
-		cout << "Your options: " << endl;
+		cout << "Your options:" << endl;
+		cout <<setw(8) << right << "Cost"
+			<<setw(11) << right << "Effect"
+			<<setw(10) << right << "Item" << endl;
 		//Loop through the whole vector, display all the options to the user. Then, have the user make a selection
 		for (int i = 0; i < weaponsList.size(); i++) {
-			cout << i+1 << ". " <<  weaponsList[i].getItem() << ": " << weaponsList[i].getCost() << " coins, " << weaponsList[i].getDMG() << " damage." << endl;
+			//The following is a weapon;
+			if (weaponsList[i].getDMG() != 0) {
+				cout << i + 1 << ". "
+					<< setw(3) << right << weaponsList[i].getCost()
+					<< setw(9) << right << weaponsList[i].getDMG() << " Dmg   "
+					<< left << weaponsList[i].getItem() << endl;
+			//The following is a potion. 
+			} else {
+				cout << i + 1 << ". "
+					<< setw(3) << right << weaponsList[i].getCost()
+					<< setw(15) << right << "Unknown   "
+					<< left << weaponsList[i].getItem() << endl;
+			}
 		}
 		cout << "You currently have " << p1.getBal() << "coins" << endl;
 		cout << "Enter 0 to exit the buying process. Please enter your selection: ";
 		cin >> selection;
-
 //If the user's selection is 0, then we know to exit the loop
 		if (selection == 0) {
 			loop = false;
@@ -65,8 +81,14 @@ void weaponsShop(player& p1) {
 			//The user has acknowledge that the purchase is valid. Change the player damage, and change the player's weapon name 
 			//Also modify the user's balance
 			if (acknowledge == 'y') {
-				p1.setDMG(weaponsList[selection-1].getDMG());
-				p1.setWeapon(weaponsList[selection-1].getItem());
+				//If the object is a pottion (i.e. If damage incurred is 0)
+				if (weaponsList[selection-1].getDMG() == 0) {
+					p1.modHealth(weaponsList[selection-1].getHP());
+					p1.modMaxHP(weaponsList[selection-1].getMaxHP());
+				} else {
+					p1.setDMG(weaponsList[selection-1].getDMG());
+					p1.setWeapon(weaponsList[selection-1].getItem());
+				}
 				p1.modBal(-weaponsList[selection-1].getCost());
 				cout << "You've brought " << weaponsList[selection-1].getItem() << "!" << endl;
 				loop = false;
@@ -331,16 +353,21 @@ int main() {
 							//The following gets a random event out of the file according to the floor
 							//Generates a random line out of the list
 							event.getRandom();
+							cout << event.getEvent() << endl;
 							//The following affects the users stats
-							//Loop will become false when the user has died, stopping the main game loop from operating
-							loop = p1.modHealth(event.getHPChange());
+							//The user cannot die from a random event. Thus, if the HP change read is negative 
+							//And is not greater 
+							if ((event.getHPChange() >= 0) || (event.getHPChange() < 0 && !(abs(event.getHPChange()) > p1.getHP()))) {
+								loop = p1.modHealth(event.getHPChange());
+							} else {
+								p1.setHP(1);
+							}
 							//The following will check if the user has died or not, and exit the floor
 							if (!loop) {
 								break;
 							}
 							p1.modBal(event.getBalChange());
 							//The following is user interface
-							cout << event.getEvent() << endl;
 							if (event.getHPChange() != 0) 
 								(event.getHPChange() < 0) ? cout << "You have lost " << event.getHPChange() << "Hp"<< endl: cout << "You have gained " << event.getHPChange() << "Hp" << endl;
 							if (event.getBalChange() != 0)

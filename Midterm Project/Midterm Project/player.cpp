@@ -43,10 +43,14 @@ void player::setMaxHP(int input) {
 }
 
 void player::setHP(int input) {
-    healthPoints = input;
+    int tmp;
+    tmp = input - healthPoints;
+    healthPoints += tmp;
 }
 void player::setDMG(int input) {
-    attackDamage = input;
+    int tmp;
+    tmp = input - attackDamage;
+    attackDamage += tmp;
 }
 void player::setBal(int input) {
     balance = input;
@@ -87,6 +91,10 @@ void player::modBal(int input) {
         balance = 0;
 }
 
+//Modifies the player's maxHP
+void player::modMaxHP(int input) {
+    maxHealth += input;
+}
 ostream& operator <<(ostream& os, const player& p) {
     os << "\nName: " << p.name << "\nMax Health: " << p.maxHealth 
     << "\nHP: " <<  p.healthPoints << "\nWeapon: " << p.weaponName

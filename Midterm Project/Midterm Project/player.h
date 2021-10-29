@@ -43,6 +43,8 @@ public:
 	void modDamage(int input);
 	//Modifies player's money balance
 	void modBal(int input);
+	//Modifies the player's max HP
+	void modMaxHP(int input);
 
 	friend ostream& operator <<(ostream& os, const player& p);
 };

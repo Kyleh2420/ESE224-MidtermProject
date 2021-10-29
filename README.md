@@ -88,6 +88,9 @@
   * Kyle (Again Again Again!)
     * Solved it! 
     * I don't know what it was, but I moved all the strings to be saved in the same place (Name, Weapon, MaxHP, HP, attack, Balance), and it worked fine.
+  * Vincent and Kyle 
+    * Debugged the menu options and the combat options because when a random input was entered that wasn't one of the options, the game broke and just inifinitely looped
+    * Fixed it by changing selection to char instead of int  
 # ESE224-MidtermProject
 
 Stony Brook University's ESE 224 Midterm Project

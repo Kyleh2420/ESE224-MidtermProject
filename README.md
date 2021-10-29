@@ -6,6 +6,10 @@
 * Finish up implementing possible random scenerios and enemies, add more weapons etc. 
    * Tell the story! Include dev notes, char development, char senses (Visual, smell, etc). See the reference game below.
 * Possible memory leak when reading in empty file
+* Implement organ collection system (Defeating an enemy nets +1 on the score, must have +7 on the scoreboard to "Win" the game)
+* Potions/Increase Max HP using the store to buy items
+* Reformat user interface/Comments
+* BALANCE THE FUCKING GAME YOU FUCK WHY AM I DYING BECUASE OF A BRICK TO THE FACE
 # Reference Game: https://web.simple-mmo.com/
 
 # JOURNAL

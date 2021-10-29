@@ -9,3 +9,4 @@
 -5 0 Another really bad thing happened
 -6 -8 You got run over and all the coins fell out of your pocket
 0 -2 You got pickpocketted.
+-4 0 You get sick, but thankfully, you have insurance. Unfotrunately, you were American. Good luck!

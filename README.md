@@ -3,10 +3,12 @@
    * I haven't touched anything with the difficulty yet. I have no idea how to implement it.
    * One idea I had was to modify the number of steps per floor (Also modifying the probability statistics with it), but that seems like a lot of work.
    * Another is modifying the enemy's attack, but that's also a lot of work. Also kind of unfair.
+   * Vincent - I was thinking we can do something where depending on the difficulty we can add a multiplier to the health and damage. For example on ez, it will just be 1x for everthing but for medium, we can do 80% health. Then for hard we can do enemy damage is 1.10 times more on top of the 80% health.
 * Finish up implementing possible random scenerios and enemies, add more weapons etc. 
    * Tell the story! Include dev notes, char development, char senses (Visual, smell, etc). See the reference game below.
 * Possible memory leak when reading in empty file
 * Implement organ collection system (Defeating an enemy nets +1 on the score, must have +7 on the scoreboard to "Win" the game)
+* Vincent - do we need organ system. If not id say forget about it for now
 * Potions/Increase Max HP using the store to buy items
 * Reformat user interface/Comments
 * BALANCE THE FUCKING GAME YOU FUCK WHY AM I DYING BECUASE OF A BRICK TO THE FACE
@@ -128,8 +130,6 @@ The floor system is going to work like this:
 2.    Randomly generate a list of 25 numbers from 0-3. This will be the random encounters that happen when a user steps forward. 
         * 0 - Nothing happens
         * 1 - Enemy Encounter. Enter Battle scene
-        ~~* 2 - Good random encounter. Ex: Player finds a treat or something and gains an extra HP.~~
-        ~~* 3 - Bad random encounter. Ex: Player trips over a rock and loses 1 hp.~~ 
         * 2 - Random encounter. Could be good or bad, will be generated randomly
 
 ## File Operations

@@ -1,0 +1,17 @@
+4 3 2 1 Bats
+8 8 2 2 Man-baby
+1 1 1 1 Con Artist
+12 12 4 3 Black Bear
+8 8 4 2 Hobgoblin
+80 80 25 25 Your Mom
+100 100 10 3 Organ Harvesters from a Non-conspicuous Nation
+16 16 4 2 Illegal Poacher
+30 30 3 3 Three Princesses of Whiteland
+40 40 3 2 Niflheim Infantryman
+20 20 2 2 White Stag
+10 10 3 2 Wolfie
+20 20 3 2 Niflheim Conscripts
+1 1 10 3 Obese Chipmunk
+1 1 5 2 Rabid Squirrel
+15 15 2 2 Whiteland Scouts
+50 50 3 4 Whiteland Dragoons

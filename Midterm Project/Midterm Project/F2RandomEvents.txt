@@ -1,0 +1,12 @@
+10 0 Toriel gives you butterscotch pie. It was delicious.
+1 0 You found a rock on the ground. You eat it. It was somehow nutritious.
+5 0 A nice spider gave you some spider cider
+7 0 An onion rolls at your feet. It was caked in dirt but you ate it anyway. The dirt gave a nice twang to the flavor.
+0 2 You found a small pouch of coins.
+-2 0 You tripped over a rock and scrape your right bone. It hurt, but you brushed it off.
+-7 0 Out of nowhere, a brick with a note came at your head. "Do not proceed", it said.
+-2 0 Something really bad happened
+-5 0 Another really bad thing happened
+-6 -8 You got run over and all the coins fell out of your pocket
+0 -2 You got pickpocketted.
+-4 0 You get sick, but thankfully, you have insurance. Unfortunately, you were American. Good luck!

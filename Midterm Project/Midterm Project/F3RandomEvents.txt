@@ -1,0 +1,11 @@
+10 4 You were given some money and some hp from Johnny. 
+-2 0 You tripped over a rock and scrape your right bone. It hurt, but you brushed it off.
+-7 0 Out of nowhere, a brick with a note came at your head. "Do not proceed", it said.
+0 -2 You got pickpocketted.
+-1 0 You hear ominous screams and wails in the distance and you become demoralized.
+1 0 You remember what brought you joy in life and become motivated.
+0 -3 Hell's economy crashes and your coins lost value. Should've brought gold with you.
+-4 0 Some Hell stones fall on you. 
+0 4 Hell has been getting great business and its economy shoots up.
+-2 0 You remember that you don't have shoes and get burned by the hot floor.
+8 0 You smell steak and follow the smell to it. Well done, but beggars can't be choosers. 

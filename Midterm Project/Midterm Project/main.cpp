@@ -109,7 +109,7 @@ void weaponsShop(player& p1) {
 //Decrease player's HP according to enemy's level and AD
 //Check if player is dead
 bool enemyCombat(enemy& e1, player& p1, scoreboard& p1Scoreboard) {
-	cout << "The enemy attacked you. " << -e1.getDMG() << " HP." << endl;
+	cout << "The enemy attacked you. " << -e1.getDMG()*e1.getLvl() << " HP." << endl;
 	p1.modHealth(-e1.getDMG() * e1.getLvl());
 	//If the user has died, then return false
 	if (p1.getHP() <= 0) {
@@ -315,7 +315,7 @@ int main() {
 		<< "\nExplore the path, defeat enemies, collect organs, and set yourself up to become a real person again."
 		<<"\nSucceed, and live a life of comfort back on earth."
 		<<"\nFail, and become an unsuccessful ghost, forever stuck in the land of inbetween, neither satisfied on hell or reborn on earth."
-		<<"\nSucceed, and you're reborn on earth as a brand new being." << endl;
+		<< endl;
 	loop = true;
 	//While we are in the game
 	//Each floor is a repeat with different probabilities, therefore this code reuses the same thing for every floor
@@ -420,13 +420,16 @@ int main() {
 			p1Scoreboard.setPos(0);
 			//Clear the screen and introduce the new level
 			cout << "\033[2J\033[1;1H";
-			cout << "A booming voice around you yells \"Congratulations, you have passed the first level\"" << endl;
+			
 			//We can check if the user has reached the last floor. If they have, then we can exit the main game loop
 			//If the user has reached the last floor, we can confirm the user has completed the game!
 			if (p1Scoreboard.getFloor() == 4) {
 				loop = false;
 				cout << "Congrats, you've passed the game!" << endl;
 				break;
+			}
+			else {
+				cout << "A booming voice around you yells \"Congratulations, you have passed this level!\"" << endl;
 			}
 		}
 

@@ -1,0 +1,15 @@
+1 1 1 1 Dung Beetle
+12 12 4 2 Giant Boa
+6 6 2 2 Vampire Bats
+2 2 1 1 Levitating Oil Lamp
+2 2 0 1 Harmless Mole
+16 16 2 4 Swarm of Wasps
+24 24 6 2 Gargantuan Mother Scorpion
+4 4 2 6 Baby Scorpions
+18 18 4 2 Talking Excalibur
+32 32 8 2 Cursed Child
+32 32 0 2 Lost Child
+12 12 3 2 Raiding Party
+20 20 2 3 Niflheim Pillagers
+18 18 4 2 Hideous Witch
+4 4 0 1 Beautiful Frog

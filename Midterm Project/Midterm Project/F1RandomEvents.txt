@@ -9,3 +9,5 @@
 0 4 Hell has been getting great business and its economy shoots up.
 -2 0 You remember that you don't have shoes and get burned by the hot floor.
 8 0 You smell steak and follow the smell to it. Well done, but beggars can't be choosers. 
+-1 0 Your arm got caught on a sharp diamond behind you. 
+0 3 You pick up a gem and stick it inside your skull. For safekeeping, of course. Or possibly to sell on the overworld.

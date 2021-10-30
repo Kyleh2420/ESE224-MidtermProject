@@ -2,6 +2,10 @@
 * Finish up implementing possible random scenerios and enemies, add more weapons etc. 
    * Tell the story! Include dev notes, char development, char senses (Visual, smell, etc). See the reference game below.
 * Possible memory leak when reading in empty file
+* BUGS
+   * When choosing a number outside of the ones listed in the shop the program breaks
+   * Starting at floor 2, game kinda ends cuz the player only has 10 max hp but the enemies do so much damage
+   * Random events are not changing the player's hp 
 * BALANCE THE FUCKING GAME YOU FUCK WHY AM I DYING BECUASE OF A BRICK TO THE FACE
 # Reference Game: https://web.simple-mmo.com/
 

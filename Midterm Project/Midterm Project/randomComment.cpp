@@ -12,7 +12,7 @@ int randomComment::getLineCount() {
 		lines.push_back(line);
 	}
 	line = "";
-	cout << "Line count is: " << lines.size() << endl;
+	//cout << "Line count is: " << lines.size() << endl;
 	return lines.size();
 }
 
@@ -21,7 +21,7 @@ randomComment::randomComment(int floorLevel) {
 	switch (floorLevel) {
 	case 0:
 		commentsFileName = "F0Comments.txt";
-		cout << "Opening " << commentsFileName << endl;
+		//cout << "Opening " << commentsFileName << endl;
 		commentsFile.open(commentsFileName);
 		if (commentsFile.fail()) {
 			cerr << "Error: F0Comment not found." << endl;
@@ -30,7 +30,7 @@ randomComment::randomComment(int floorLevel) {
 		break;
 	case 1:
 		commentsFileName = "F1Comments.txt";
-		cout << "Opening " << commentsFileName << endl;
+		//cout << "Opening " << commentsFileName << endl;
 		commentsFile.open(commentsFileName);
 		if (commentsFile.fail()) {
 			cerr << "Error: F1Comment not found." << endl;
@@ -39,7 +39,7 @@ randomComment::randomComment(int floorLevel) {
 		break;
 	case 2:
 		commentsFileName = "F2Comments.txt";
-		cout << "Opening " << commentsFileName << endl;
+		//cout << "Opening " << commentsFileName << endl;
 		commentsFile.open(commentsFileName);
 		if (commentsFile.fail()) {
 			cerr << "Error: F2Comment not found." << endl;
@@ -48,7 +48,7 @@ randomComment::randomComment(int floorLevel) {
 		break;
 	case 3:
 		commentsFileName = "F3Comments.txt";
-		cout << "Opening " << commentsFileName << endl;
+		//cout << "Opening " << commentsFileName << endl;
 		commentsFile.open(commentsFileName);
 		if (commentsFile.fail()) {
 			cerr << "Error: F3Comment not found." << endl;

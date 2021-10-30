@@ -135,8 +135,8 @@ bool enemyCombat(enemy& e1, player& p1, scoreboard& p1Scoreboard) {
 void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
 	bool loop = true;
 	char selection;
-	cout << "Entering combat with " << e1 << endl;
-	cout << "Your stats: " << p1 << endl;
+	cout << "\n-----------------\nEntering combat with " << e1 << endl;
+	cout << "Your stats: \n" << p1 << endl;
 	while (loop) {
 		cout << "Please make a selection" 
 		<< "\n1 - Examine yourself"
@@ -265,6 +265,7 @@ int main() {
 					cin.ignore();
 					std::getline(cin, entry);
 					p1.setName(entry);
+					/*
 					while (loop) {
 						cout << "Please enter your difficulty level\n1 - easy\n2 - Medium\n3 - Hard\nYour selection: ";
 						cin >> selection;
@@ -290,6 +291,8 @@ int main() {
 								break;
 						}
 					}
+					*/
+					loop = false;
 					p1Scoreboard.setFloor(0);
 					p1Scoreboard.setPos(0);
 					cout << "Please enter a save file name: ";
@@ -303,13 +306,22 @@ int main() {
 					cout << "Please enter a valid response" << endl;
 			}
     }
-	cout << "Now entering Game Portion";
-
+	//cout << "Now entering Game Portion";
+	//We clear the screen
+	cout << "\033[2J\033[1;1H";
+	//Storytime!
+	cout << "You are a skeleton who has been condemned to the depths of hell."
+		<< "\nHowever, hell just isn't to your satisfaction, so you're escaping back to earth."
+		<< "\nExplore the path, defeat enemies, collect organs, and set yourself up to become a real person again."
+		<<"\nSucceed, and live a life of comfort back on earth."
+		<<"\nFail, and become an unsuccessful ghost, forever stuck in the land of inbetween, neither satisfied on hell or reborn on earth."
+		<<"\nSucceed, and you're reborn on earth as a brand new being." << endl;
 	loop = true;
 	//While we are in the game
 	//Each floor is a repeat with different probabilities, therefore this code reuses the same thing for every floor
 	///THIS IS THE MAIN GAME LOOP
 	//Each time this loop is run, we construct different objects depending on what we read from p1Scoreboard
+	
 	while (loop) {
 		//Creates a new class playGame with the current floor
 		gameFloor playGame(p1Scoreboard.getFloor(), p1Scoreboard.getPos());
@@ -406,6 +418,9 @@ int main() {
 			p1Scoreboard.setFloor(p1Scoreboard.getFloor() + 1);
 			//Resets the player's position on the floor back to the beginning
 			p1Scoreboard.setPos(0);
+			//Clear the screen and introduce the new level
+			cout << "\033[2J\033[1;1H";
+			cout << "A booming voice around you yells \"Congratulations, you have passed the first level\"" << endl;
 			//We can check if the user has reached the last floor. If they have, then we can exit the main game loop
 			//If the user has reached the last floor, we can confirm the user has completed the game!
 			if (p1Scoreboard.getFloor() == 4) {

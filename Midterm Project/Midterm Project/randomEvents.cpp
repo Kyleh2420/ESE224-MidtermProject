@@ -16,7 +16,7 @@ int randomEvents::getLineCount() {
 		balList.push_back(balChange);
 	}
 	line = "";
-	cout << "Line count is: " << lines.size() << endl;
+	//cout << "Line count is: " << lines.size() << endl;
 	return lines.size();
 }
 
@@ -26,7 +26,7 @@ randomEvents::randomEvents(int floorLevel) {
 	switch (floorLevel) {
 		case 0:
 			eventsFileName = "F0RandomEvents.txt";
-			cout << "Opening " << eventsFileName << endl;
+			//cout << "Opening " << eventsFileName << endl;
 			eventsFile.open(eventsFileName);
 			if (eventsFile.fail()) {
 				cerr << "Error: F0RandomEvents not found." << endl;
@@ -35,7 +35,7 @@ randomEvents::randomEvents(int floorLevel) {
 			break;
 		case 1:
 			eventsFileName = "F1RandomEvents.txt";
-			cout << "Opening " << eventsFileName << endl;
+			//cout << "Opening " << eventsFileName << endl;
 			eventsFile.open(eventsFileName);
 			if (eventsFile.fail()) {
 				cerr << "Error: F1RandomEvents not found." << endl;
@@ -44,7 +44,7 @@ randomEvents::randomEvents(int floorLevel) {
 			break;
 		case 2:
 			eventsFileName = "F2RandomEvents.txt";
-			cout << "Opening " << eventsFileName << endl;
+			//cout << "Opening " << eventsFileName << endl;
 			eventsFile.open(eventsFileName);
 			if (eventsFile.fail()) {
 				cerr << "Error: F2RandomEvents not found." << endl;
@@ -53,7 +53,7 @@ randomEvents::randomEvents(int floorLevel) {
 			break;
 		case 3:
 			eventsFileName = "F3RandomEvents.txt";
-			cout << "Opening " << eventsFileName << endl;
+			//cout << "Opening " << eventsFileName << endl;
 			eventsFile.open(eventsFileName);
 			if (eventsFile.fail()) {
 				cerr << "Error: F3RandomEvents not found." << endl;

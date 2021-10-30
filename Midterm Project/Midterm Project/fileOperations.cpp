@@ -19,7 +19,6 @@ void fileOperations::save2File(player& input) {
 
 }
 void fileOperations::save2File(scoreboard& input) {
-    cout << "Testing124";
     sb_myFile.open(sbFileName, ios::out);
     if (sb_myFile.fail()) {
         cerr << "Error saving the file! Please try again!" << endl;

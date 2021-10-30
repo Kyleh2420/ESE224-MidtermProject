@@ -4,7 +4,7 @@ enemy::enemy(int floorLevel) {
     switch (floorLevel) {
     case 0:
         enemyFileName = "F0Enemies.txt";
-        cout << "Opening " << enemyFileName << endl;
+        //cout << "Opening " << enemyFileName << endl;
         enemyList.open(enemyFileName);
         if (enemyList.fail()) {
             cerr << "Error: F0Enemies.txt not found" << endl;
@@ -13,7 +13,7 @@ enemy::enemy(int floorLevel) {
         break;
     case 1:
         enemyFileName = "F1Enemies.txt";
-        cout << "Opening " << enemyFileName << endl;
+        //cout << "Opening " << enemyFileName << endl;
         enemyList.open(enemyFileName);
         if (enemyList.fail()) {
             cerr << "Error: F1Enemies.txt not found" << endl;
@@ -22,7 +22,7 @@ enemy::enemy(int floorLevel) {
         break;
     case 2:
         enemyFileName = "F2Enemies.txt";
-        cout << "Opening " << enemyFileName << endl;
+        //cout << "Opening " << enemyFileName << endl;
         enemyList.open(enemyFileName);
         if (enemyList.fail()) {
             cerr << "Error: F2Enemies.txt not found" << endl;
@@ -31,7 +31,7 @@ enemy::enemy(int floorLevel) {
         break;
     case 3:
         enemyFileName = "F3Enemies.txt";
-        cout << "Opening " << enemyFileName << endl;
+        //cout << "Opening " << enemyFileName << endl;
         enemyList.open(enemyFileName);
         if (enemyList.fail()) {
             cerr << "Error: F3Enemies.txt not found" << endl;
@@ -130,7 +130,7 @@ ostream& operator << (ostream& os, const enemy& e) {
         listOfAD.push_back(attackDamage);
         listOfLevel.push_back(level);
     }
-    cout << "Line count is: " <<  listOfNames.size() << endl;
+    //cout << "Line count is: " <<  listOfNames.size() << endl;
 }
 
 

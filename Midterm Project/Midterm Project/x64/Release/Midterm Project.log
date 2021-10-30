@@ -1,0 +1,24 @@
+﻿  enemy.cpp
+D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Midterm Project\enemy.cpp(138,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  fileOperations.cpp
+  floor.cpp
+D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Midterm Project\floor.cpp(41,19): warning C4244: 'initializing': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+  main.cpp
+  player.cpp
+  randomComment.cpp
+D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Midterm Project\randomComment.cpp(16,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Midterm Project\randomComment.cpp(85,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  randomEvents.cpp
+D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Midterm Project\randomEvents.cpp(20,21): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Midterm Project\randomEvents.cpp(96,12): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  scoreboard.cpp
+  weapon.cpp
+  Generating code
+  Previous IPDB not found, fall back to full compilation.
+  All 460 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Midterm Project.vcxproj -> D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\x64\Release\Midterm Project.exe

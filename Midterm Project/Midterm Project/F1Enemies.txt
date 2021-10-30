@@ -1,8 +1,9 @@
 8 8 2 2 Johnny Liu
 5 3 2 1 Kevin Chen
-
 3 3 1 1 Goblins
 2 2 1 1 Slime
 2 2 1 2 Slime
 3 3 2 1 Bats
+8 8 2 2 Gigantic SPider
+10 10 4 1 Humanoid Crystal
 

@@ -180,7 +180,7 @@ void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
 				else {
 					srand(time(0));
 					tmp = rand() % 100;
-					if (tmp < 30) {
+					if (tmp < 60) {
 						cout << "Run Away." << endl;
 						loop = false;
 					}
@@ -318,7 +318,6 @@ void game(player& p1, scoreboard& p1Scoreboard, fileOperations& files) {
 								(event.getHPChange() < 0) ? cout << "You have lost " << event.getHPChange() << "Hp" << endl : cout << "You have gained " << event.getHPChange() << "Hp" << endl;
 							if (event.getBalChange() != 0)
 								(event.getBalChange() < 0) ? cout << "You have lost " << event.getBalChange() << "coins" << endl : cout << "You have gained " << event.getBalChange() << "coins" << endl;
-							break;
 							//The following affects the users stats
 							//The user cannot die from a random event. Thus, if the HP change read is negative 
 							//And is not greater 
@@ -332,7 +331,7 @@ void game(player& p1, scoreboard& p1Scoreboard, fileOperations& files) {
 								break;
 							}
 							p1.modBal(event.getBalChange());
-							
+							break;
 					 	case 0:
 					 	default:
 					// 		//QuIrKy comments need to be read from a file as well

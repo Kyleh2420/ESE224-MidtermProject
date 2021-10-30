@@ -1,16 +1,12 @@
 # Current To Do List
- Implement the difficulty functionality
-   * I haven't touched anything with the difficulty yet. I have no idea how to implement it.
-   * One idea I had was to modify the number of steps per floor (Also modifying the probability statistics with it), but that seems like a lot of work.
-   * Another is modifying the enemy's attack, but that's also a lot of work. Also kind of unfair.
-   * Vincent - I was thinking we can do something where depending on the difficulty we can add a multiplier to the health and damage. For example on ez, it will just be 1x for everthing but for medium, we can do 80% health. Then for hard we can do enemy damage is 1.10 times more on top of the 80% health.
+ ~~Implement the difficulty functionality~
+   ~~* I haven't touched anything with the difficulty yet. I have no idea how to implement it.~
+   ~~* One idea I had was to modify the number of steps per floor (Also modifying the probability statistics with it), but that seems like a lot of work.
+   ~* Another is modifying the enemy's attack, but that's also a lot of work. Also kind of unfair.
+   ~* Vincent - I was thinking we can do something where depending on the difficulty we can add a multiplier to the health and damage. For example on ez, it will just be 1x for everthing but for medium, we can do 80% health. Then for hard we can do enemy damage is 1.10 times more on top of the 80% health.
 * Finish up implementing possible random scenerios and enemies, add more weapons etc. 
    * Tell the story! Include dev notes, char development, char senses (Visual, smell, etc). See the reference game below.
 * Possible memory leak when reading in empty file
-* Implement organ collection system (Defeating an enemy nets +1 on the score, must have +7 on the scoreboard to "Win" the game)
-* Vincent - do we need organ system. If not id say forget about it for now
-* Potions/Increase Max HP using the store to buy items
-* Reformat user interface/Comments
 * BALANCE THE FUCKING GAME YOU FUCK WHY AM I DYING BECUASE OF A BRICK TO THE FACE
 # Reference Game: https://web.simple-mmo.com/
 
@@ -93,6 +89,13 @@
   * Vincent and Kyle 
     * Debugged the menu options and the combat options because when a random input was entered that wasn't one of the options, the game broke and just inifinitely looped
     * Fixed it by changing selection to char instead of int  
+#### 10/29
+  * Kyle
+     * Tidied up the game, cleaned up user interfaces and removed debugging nonsense
+     * Added more to the possible weapons, enemies, and comments
+     * Added organ collection system (Utilizing the scoreboard to keep track of the number of enemies killed.) Require 10+ killed enemies before winning the game.
+     * Added a random comment class to describe the scenery around the player
+     * Theoretically speaking, the user can no longer die from random events. It still happens though.
 # ESE224-MidtermProject
 
 Stony Brook University's ESE 224 Midterm Project

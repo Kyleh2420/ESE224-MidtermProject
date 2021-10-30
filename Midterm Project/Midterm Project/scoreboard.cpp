@@ -40,12 +40,22 @@ void scoreboard::addScore(int input) {
     case 1: tmp = " brain"; break;
     case 2: tmp = " heart"; break;
     case 3: tmp = " liver"; break;
-    case 4: 
-    case 6:
+    case 4: tmp = " pancreas"; break;
+    case 6: tmp = " kidney"; break;
     case 8: tmp = " part of the small intestine"; break;
-    case 5:
-    case 7:
+    case 5: tmp = " kidney"; break;
+    case 7: tmp = " bottle of blood. This will be useful later"; break;
     case 9: tmp = " part of the large intestine"; break;
+    case 10: tmp = " lung"; break;
+    case 11: tmp = " gallbladder"; break;
+    case 12: tmp = " bladder"; break;
+    case 13: tmp = " spleen"; break;
+    case 14: tmp = " tongue"; break;
+    case 15: tmp = " piece of skin. You hope its big enough for yourself"; break;
+    case 16: tmp = " singular eyeball"; break;
+    case 17: tmp = "n eardrum"; break;
+    case 18: tmp = " half of a nostril"; break;
+    case 19: tmp = " singular hair folicle. You hope you're not bald again!"; break;
     default: tmp = " singular muscle fiber"; break;
     }
     cout << "You collected a" << tmp << endl;

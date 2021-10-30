@@ -135,6 +135,7 @@ bool enemyCombat(enemy& e1, player& p1, scoreboard& p1Scoreboard) {
 //3. The enemy runs out of hp
 void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
 	bool loop = true;
+	int tmp(-1);
 	char selection;
 	cout << "\n-----------------\nEntering combat with " << e1 << endl;
 	cout << "Your stats: \n" << p1 << endl;
@@ -173,8 +174,20 @@ void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
 				e1.modHealth(-p1.getDMG());
 				break;
 			case '4': 
-				cout << "Run Away." << endl;
-				loop = false;
+				if (tmp >= 0) {
+					cout << "The enemy has prevented you from running away. " << endl;
+				}
+				else {
+					srand(time(0));
+					tmp = rand() % 100;
+					if (tmp < 30) {
+						cout << "Run Away." << endl;
+						loop = false;
+					}
+					else {
+						cout << "Run away has failed. The enemy has trapped you" << endl;
+					}
+				}
 				break;
 			default:
 				cout << "That wasn't a selection! Please try again!" << endl;
@@ -234,88 +247,19 @@ void playerOptions(player& p1, fileOperations& files, scoreboard& p1Scoreboard) 
 		}
 	}
 }
-int main() {
-	player p1;
-	scoreboard p1Scoreboard;
-	fileOperations files;
-	
-    //The following will loop through the player's starting options 
-	//The User will select whether or not a new file is created or loaded.
-	//If a new file is created, it will Ask for the players name and difficulty, then save those to 
-	//player p1 and scoreboard p1Scoreboard, respectively. It will then jump to
-	//playerOptions (The glorified pause menu) for file saving
-	char selection;
-	string entry;
-    bool loop = true;
-    while (loop) {
-			cout << "Would you like to create a new file or load a save file? "
-				<< "\nN - Create a new save file \nL - Load a save file \nYour answer: ";
-			cin >> selection;
-			selection = tolower(selection); //Lowercase everything to limit the number of cases
-			switch(selection) {
-				case 'l':
-					cout << "Please enter the savefile name: ";
-					files.setPName(cin);
-					files.chooseFile(p1Scoreboard, p1);
 
-					loop = false;
-					break;
-				case 'n': //New File is to be created. We must gather information about the user.
-					cout << "Please enter your player name: ";
-					cin.ignore();
-					std::getline(cin, entry);
-					p1.setName(entry);
-					/*
-					while (loop) {
-						cout << "Please enter your difficulty level\n1 - easy\n2 - Medium\n3 - Hard\nYour selection: ";
-						cin >> selection;
-						selection = tolower(selection);
-						switch(selection){
-							case '1':
-								cout << "Difficulty set to easy" << endl;
-								p1Scoreboard.setDiff(1);
-								loop = false;
-								break;
-							case '2':
-								cout << "Difficulty set to medium" << endl;
-								p1Scoreboard.setDiff(2);
-								loop = false;
-								break;
-							case '3':
-								cout << "Difficulty set to hard" << endl;
-								p1Scoreboard.setDiff(3);
-								loop = false;
-								break;
-							default:
-								cout << "Please enter a valid response" << endl;
-								break;
-						}
-					}
-					*/
-					loop = false;
-					p1Scoreboard.setFloor(0);
-					p1Scoreboard.setPos(0);
-					cout << "Please enter a save file name: ";
-					files.setPName(cin);
-					//cout << "Please enter a scoreboard file name with a .txt extention: ";
-					//p1Scoreboard.setName(cin);
-					files.save2File(p1);
-					files.save2File(p1Scoreboard);
-				break;
-				default:
-					cout << "Please enter a valid response" << endl;
-			}
-    }
+
+void game(player& p1, scoreboard& p1Scoreboard, fileOperations& files) {
+	bool loop;
+	char selection;
 	//cout << "Now entering Game Portion";
-	//We clear the screen
-	cout << "\033[2J\033[1;1H";
 	//Storytime!
 	cout << "You are a skeleton who has been condemned to the depths of hell."
 		<< "\nHowever, hell just isn't to your satisfaction, so you're escaping back to earth."
 		<< "\nExplore the path, defeat enemies, collect organs, and set yourself up to become a real person again."
 		<<"\nSucceed, and live a life of comfort back on earth."
 		<<"\nFail, and become an unsuccessful ghost, forever stuck in the land of inbetween, neither satisfied on hell or reborn on earth."
-		<< endl;
+		<<"\nYou must defeat at least 10 enemies in order to proceed to earth" <<  endl;
 	loop = true;
 	//While we are in the game
 	//Each floor is a repeat with different probabilities, therefore this code reuses the same thing for every floor
@@ -427,14 +371,26 @@ int main() {
 			if (p1Scoreboard.getFloor() == 4) {
 				loop = false;
 				if (p1Scoreboard.getScore() > 10) {
+					//We clear the screen
+					cout << "\033[2J\033[1;1H";
 					cout << "A booming voice around you tells \" Congratulations, you have collected enough organs to become a person again! Go enjoy your life\"" << endl;
 				}
 				else {
+					//We clear the screen
+					cout << "\033[2J\033[1;1H";
 					cout << "A booming voice around you yells \"It looks like you haven't collected enough organs. I will now strip you of all your organs so that you will never be able to live again. \"" << endl;
+					p1Scoreboard.setFloor(0);
+					p1.setBal(0);
+					p1.setHP(1);
+					p1.setMaxHP(1);
+					p1.setDMG(0);
+					game(p1, p1Scoreboard, files);
 				}
 				break;
 			}
 			else {
+				//We clear the screen
+				cout << "\033[2J\033[1;1H";
 				cout << "A booming voice around you yells \"Congratulations, you have passed this level!\"" << endl;
 			}
 		}
@@ -446,4 +402,82 @@ int main() {
 	//cout << Alex << endl;
 	//weapon sword;
 
+}
+
+
+int main() {
+	player p1;
+	scoreboard p1Scoreboard;
+	fileOperations files;
+
+	//The following will loop through the player's starting options 
+	//The User will select whether or not a new file is created or loaded.
+	//If a new file is created, it will Ask for the players name and difficulty, then save those to 
+	//player p1 and scoreboard p1Scoreboard, respectively. It will then jump to
+	//playerOptions (The glorified pause menu) for file saving
+	char selection;
+	string entry;
+	bool loop = true;
+	while (loop) {
+		cout << "Would you like to create a new file or load a save file? "
+			<< "\nN - Create a new save file \nL - Load a save file \nYour answer: ";
+		cin >> selection;
+		selection = tolower(selection); //Lowercase everything to limit the number of cases
+		switch (selection) {
+		case 'l':
+			cout << "Please enter the savefile name: ";
+			files.setPName(cin);
+			files.chooseFile(p1Scoreboard, p1);
+
+			loop = false;
+			break;
+		case 'n': //New File is to be created. We must gather information about the user.
+			cout << "Please enter your player name: ";
+			cin.ignore();
+			std::getline(cin, entry);
+			p1.setName(entry);
+			/*
+			while (loop) {
+				cout << "Please enter your difficulty level\n1 - easy\n2 - Medium\n3 - Hard\nYour selection: ";
+				cin >> selection;
+				selection = tolower(selection);
+				switch(selection){
+					case '1':
+						cout << "Difficulty set to easy" << endl;
+						p1Scoreboard.setDiff(1);
+						loop = false;
+						break;
+					case '2':
+						cout << "Difficulty set to medium" << endl;
+						p1Scoreboard.setDiff(2);
+						loop = false;
+						break;
+					case '3':
+						cout << "Difficulty set to hard" << endl;
+						p1Scoreboard.setDiff(3);
+						loop = false;
+						break;
+					default:
+						cout << "Please enter a valid response" << endl;
+						break;
+				}
+			}
+			*/
+			loop = false;
+			p1Scoreboard.setFloor(0);
+			p1Scoreboard.setPos(0);
+			cout << "Please enter a save file name: ";
+			files.setPName(cin);
+			//cout << "Please enter a scoreboard file name with a .txt extention: ";
+			//p1Scoreboard.setName(cin);
+			files.save2File(p1);
+			files.save2File(p1Scoreboard);
+			break;
+		default:
+			cout << "Please enter a valid response" << endl;
+		}
+	}
+	//We clear the screen
+	cout << "\033[2J\033[1;1H";
+	game(p1, p1Scoreboard, files);
 }

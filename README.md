@@ -1,9 +1,9 @@
 # Current To Do List
  ~~Implement the difficulty functionality~~
-   * ~~I haven't touched anything with the difficulty yet. I have no idea how to implement it.
-   * ~~One idea I had was to modify the number of steps per floor (Also modifying the probability statistics with it), but that seems like a lot of work.
-   * ~~Another is modifying the enemy's attack, but that's also a lot of work. Also kind of unfair.
-   * ~~Vincent - I was thinking we can do something where depending on the difficulty we can add a multiplier to the health and damage. For example on ez, it will just be 1x for everthing but for medium, we can do 80% health. Then for hard we can do enemy damage is 1.10 times more on top of the 80% health.
+   * ~~I haven't touched anything with the difficulty yet. I have no idea how to implement it.~~
+   * ~~One idea I had was to modify the number of steps per floor (Also modifying the probability statistics with it), but that seems like a lot of work.~~
+   * ~~Another is modifying the enemy's attack, but that's also a lot of work. Also kind of unfair.~~
+   * ~~Vincent - I was thinking we can do something where depending on the difficulty we can add a multiplier to the health and damage. For example on ez, it will just be 1x for everthing but for medium, we can do 80% health. Then for hard we can do enemy damage is 1.10 times more on top of the 80% health.~~
 * Finish up implementing possible random scenerios and enemies, add more weapons etc. 
    * Tell the story! Include dev notes, char development, char senses (Visual, smell, etc). See the reference game below.
 * Possible memory leak when reading in empty file

@@ -67,11 +67,11 @@ void weaponsShop(player& p1) {
 					<< left << weaponsList[i].getItem() << endl;
 			}
 		}
-		cout << "You currently have " << p1.getBal() << "coins" << endl;
+		cout << "You currently have " << p1.getBal() << " coins" << endl;
 		cout << "Enter 0 to exit the buying process. Please enter your selection: ";
 		cin >> selection;
 //If the user's selection is 0, then we know to exit the loop
-		if (selection == 0) {
+		if (selection == 0) { //this part breaks if a random input that is not a numbe is chosen
 			loop = false;
 //Otherwise, let's check if the user can actually buy the item. If they can, then prompt them to ensure their purchase is correct
 		} else if (weaponsList[selection-1].getCost() > p1.getBal()) {

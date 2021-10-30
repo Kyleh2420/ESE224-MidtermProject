@@ -6,6 +6,7 @@
    * When choosing a number outside of the ones listed in the shop the program breaks
    * Starting at floor 2, game kinda ends cuz the player only has 10 max hp but the enemies do so much damage
    * Random events are not changing the player's hp 
+* Finish documentation
 * BALANCE THE FUCKING GAME YOU FUCK WHY AM I DYING BECUASE OF A BRICK TO THE FACE
 # Reference Game: https://web.simple-mmo.com/
 
@@ -95,6 +96,12 @@
      * Added organ collection system (Utilizing the scoreboard to keep track of the number of enemies killed.) Require 10+ killed enemies before winning the game.
      * Added a random comment class to describe the scenery around the player
      * Theoretically speaking, the user can no longer die from random events. It still happens though.
+#### 10/30
+   * Vincent 
+     * Trying to test and debug the game before submission
+     * Made a new section in To Do list called bugs 
+
+
 # ESE224-MidtermProject
 
 Stony Brook University's ESE 224 Midterm Project

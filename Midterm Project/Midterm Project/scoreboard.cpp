@@ -35,6 +35,20 @@ int scoreboard::getPos() {
 
 void scoreboard::addScore(int input) {
     sbScore += input;
+    string tmp;
+    switch (sbScore) {
+    case 1: tmp = " brain"; break;
+    case 2: tmp = " heart"; break;
+    case 3: tmp = " liver"; break;
+    case 4: 
+    case 6:
+    case 8: tmp = " part of the small intestine"; break;
+    case 5:
+    case 7:
+    case 9: tmp = " part of the large intestine"; break;
+    default: tmp = " singular muscle fiber"; break;
+    }
+    cout << "You collected a" << tmp << endl;
 }
 
 void scoreboard::sbOut() {

@@ -32,6 +32,7 @@ void weaponsShop(player& p1) {
 		cerr << "We couldn't open the weapons file. You'll have to stick with your fist" << endl;
 		p1.setWeapon("Hand");
 		p1.setDMG(2);
+		return;
 	}
 
 //Take in the weapon choices from the file to a vector
@@ -159,13 +160,12 @@ void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
 				//We need an ifstatement to see if the damage that the player does is way above the enemys HP.
 				//If it is, then only add the rest of the player's HP and kill the enemy
 				if (e1.getHP() <= p1.getDMG()) {
-					p1Scoreboard.addScore(e1.getHP());
 					p1.modBal(e1.getHP());
+					p1Scoreboard.addScore(1);
 					cout << "The enemy has died!"
-						<< "You have earned " << e1.getMaxHP() << " coins." << endl;
+						<< "\nYou have earned " << e1.getMaxHP() << " coins." << endl;
 					loop = false;
 				} else {
-					p1Scoreboard.addScore(p1.getDMG());
 					p1.modBal(p1.getDMG());
 					cout << "You attacked the enemy, -" << p1.getDMG() << endl;
 					loop = enemyCombat(e1, p1, p1Scoreboard);
@@ -369,6 +369,12 @@ int main() {
 							//Generates a random line out of the list
 							event.getRandom();
 							cout << event.getEvent() << endl;
+							//The following is user interface
+							if (event.getHPChange() != 0)
+								(event.getHPChange() < 0) ? cout << "You have lost " << event.getHPChange() << "Hp" << endl : cout << "You have gained " << event.getHPChange() << "Hp" << endl;
+							if (event.getBalChange() != 0)
+								(event.getBalChange() < 0) ? cout << "You have lost " << event.getBalChange() << "coins" << endl : cout << "You have gained " << event.getBalChange() << "coins" << endl;
+							break;
 							//The following affects the users stats
 							//The user cannot die from a random event. Thus, if the HP change read is negative 
 							//And is not greater 
@@ -382,12 +388,7 @@ int main() {
 								break;
 							}
 							p1.modBal(event.getBalChange());
-							//The following is user interface
-							if (event.getHPChange() != 0) 
-								(event.getHPChange() < 0) ? cout << "You have lost " << event.getHPChange() << "Hp"<< endl: cout << "You have gained " << event.getHPChange() << "Hp" << endl;
-							if (event.getBalChange() != 0)
-								(event.getBalChange() < 0) ? cout << "You have lost " << event.getBalChange() << "coins"<< endl: cout << "You have gained " << event.getBalChange() << "coins" << endl;
-					 		break;
+							
 					 	case 0:
 					 	default:
 					// 		//QuIrKy comments need to be read from a file as well
@@ -425,7 +426,12 @@ int main() {
 			//If the user has reached the last floor, we can confirm the user has completed the game!
 			if (p1Scoreboard.getFloor() == 4) {
 				loop = false;
-				cout << "Congrats, you've passed the game!" << endl;
+				if (p1Scoreboard.getScore() > 10) {
+					cout << "A booming voice around you tells \" Congratulations, you have collected enough organs to become a person again! Go enjoy your life\"" << endl;
+				}
+				else {
+					cout << "A booming voice around you yells \"It looks like you haven't collected enough organs. I will now strip you of all your organs so that you will never be able to live again. \"" << endl;
+				}
 				break;
 			}
 			else {

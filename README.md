@@ -100,6 +100,8 @@
    * Vincent 
      * Trying to test and debug the game before submission
      * Made a new section in To Do list called bugs 
+   * Derrick
+     * Fixed bug for choosing a number not in the selection for buying a weaepon from the shop
 
 
 # ESE224-MidtermProject

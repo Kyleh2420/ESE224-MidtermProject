@@ -11,5 +11,5 @@
 5 0 0 -1 Holy water - Effect Unknown.
 5 0 0 1 Unholy Water - Effect Unknown.
 8 0 0 5 Healing Potion
-15 0 5 0 Dying a lot? Use this! Potion
+15 0 5 0 Dying a lot? Use this to increase max Hp! Potion
 20 0 0 0 Clear potion. Buy only if you have excess of gold.

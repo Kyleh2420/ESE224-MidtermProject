@@ -43,6 +43,7 @@ void weaponsShop(player& p1) {
 		weaponFile.seekg(1, std::ios_base::cur);
 		getline(weaponFile, item);
 		weaponsList.push_back(weapon(item, dmg, cost, maxHP, HP));
+		cout << "TEST" << endl;
 	}
 
 //This starts the buying process from the user.
@@ -525,7 +526,7 @@ int main() {
 	cout << "\033[2J\033[1;1H";
 	game(p1, p1Scoreboard, files);
 	files.save2File(p1Scoreboard, p1);
-	cout << "OPTION: Would you like to view the scoreboard in alphabetical order?(Y/N)\n";
+	beginning:cout << "OPTION: Would you like to view the scoreboard in alphabetical order?(Y/N)\n";
 	char choice;
 	cin >> choice;
 	switch (choice) {
@@ -537,5 +538,6 @@ int main() {
 			break;
 		default:
 			cout << "That wasn't an option!" << endl;
+			goto beginning;
 	}
 }

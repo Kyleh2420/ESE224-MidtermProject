@@ -102,6 +102,13 @@
      * Made a new section in To Do list called bugs 
    * Derrick
      * Fixed bug for choosing a number not in the selection for buying a weaepon from the shop
+#### 10/31
+   * Derrick
+     *  Created a scoreboard for the game (rather than a scoreboared per player)
+     *  Added function save2File(scoreboard&, player&) which creates a file listing the names of all players who have played the gamea and their corresponding score.
+     *  Sorted the scoreboard from highest to lowest in the function as well
+     *  Added functions to fileOperations.cpp that return vectors of names of players and their scores
+     *  Added an option for players to view the scoreboard aplphabetically(name order a-z) after the game ends
 
 
 # ESE224-MidtermProject

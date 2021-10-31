@@ -43,7 +43,6 @@ void weaponsShop(player& p1) {
 		weaponFile.seekg(1, std::ios_base::cur);
 		getline(weaponFile, item);
 		weaponsList.push_back(weapon(item, dmg, cost, maxHP, HP));
-		cout << "TEST" << endl;
 	}
 
 //This starts the buying process from the user.

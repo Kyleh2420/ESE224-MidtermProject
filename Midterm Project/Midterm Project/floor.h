@@ -21,7 +21,7 @@ class gameFloor {
         int floorSettings[4][4] = {{5, 6},
                                     {7, 5},
                                     {8, 7},
-                                    {3,1}};
+                                    {9,5}};
 
     public:
         //Default constructor

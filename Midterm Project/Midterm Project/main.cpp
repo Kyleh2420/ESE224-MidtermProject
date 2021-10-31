@@ -179,6 +179,8 @@ void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
 					loop = enemyCombat(e1, p1, p1Scoreboard);
 				}
 				e1.modHealth(-p1.getDMG());
+				//Each time the user attacks, they have another chance at trying to run away.
+				tmp = -1;
 				break;
 			case '4': 
 				if (tmp >= 0) {

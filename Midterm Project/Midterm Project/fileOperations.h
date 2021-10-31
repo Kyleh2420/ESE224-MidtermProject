@@ -1,8 +1,10 @@
 #include <iostream>
+#include <iomanip>
 #include <string>
 #include <fstream>
 #include "scoreboard.h"
 #include "player.h"
+#include <vector>
 using namespace std;
 
 class fileOperations {
@@ -16,6 +18,11 @@ class fileOperations {
         string pFileName;
         //Opens the player File
         fstream pmyFile;
+
+        //Holds the name of the game scoreboard file
+        string gsbFileName = "scoreboard.txt";
+        //Opens the game scoreboard file
+        fstream gsb_myFile;
 
     public:
         //Saves player progress to file
@@ -32,6 +39,12 @@ class fileOperations {
 
         //Setting of something
         void setPName(istream& in);
+        //Saves player name and score to game's scoreboard
+        void save2File(scoreboard&, player&);
+        //returns vectors of players names
+        vector<string> getNames(scoreboard&, player&);
+        //resturns vector of players scores
+        vector<string> getScores(scoreboard&, player&);
 
         //Opens the ramdom Events File
         // void openRandomEvents();

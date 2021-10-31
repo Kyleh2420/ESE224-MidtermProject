@@ -88,6 +88,11 @@ void weaponsShop(player& p1) {
 				//If the object is a pottion (i.e. If damage incurred is 0)
 				if (weaponsList[selection-1].getDMG() == 0) {
 					p1.modHealth(weaponsList[selection-1].getHP());
+					if (p1.getHP() <= 0) {
+						cout << "We're sorry, you have died!" << endl;
+						cout << "The game has now ended, but you can always restart!" << endl;
+						loop = false;
+					}
 					p1.modMaxHP(weaponsList[selection-1].getMaxHP());
 				} else {
 					p1.setDMG(weaponsList[selection-1].getDMG());
@@ -253,6 +258,7 @@ void playerOptions(player& p1, fileOperations& files, scoreboard& p1Scoreboard) 
 
 void game(player& p1, scoreboard& p1Scoreboard, fileOperations& files) {
 	bool loop;
+	bool dead = false;
 	char selection;
 	//cout << "Now entering Game Portion";
 	//Storytime!
@@ -279,7 +285,7 @@ void game(player& p1, scoreboard& p1Scoreboard, fileOperations& files) {
 		cout << "The current floor is: " << p1Scoreboard.getFloor() << endl;
 		//We stay in this while loop as long as the usre has not reached the maximum position 
 		//Anotherwards, repeat the following loop until we run out of positions to advance to
-		while (playGame.getCurrentPos() < playGame.getTotalPos()-1) {
+		while ((playGame.getCurrentPos() < playGame.getTotalPos()-1) && loop == true) {
 			//User Input. Gets whether the user would like to take a step or pause
 			cout << "\nThe current position is " << playGame.getCurrentPos() << "/" << playGame.getTotalPos() << endl;
 			cout << "Press [t] to take a step, or press [m] to access menu options. \nYou entered: ";
@@ -305,6 +311,12 @@ void game(player& p1, scoreboard& p1Scoreboard, fileOperations& files) {
 					// 		//Ex: Fl1Enemies.txt and Fl1Weapons.txt both contain info about what is available on each floor	
 							enemy e1(p1Scoreboard.getFloor());
 					 		playerCombat(p1, e1, p1Scoreboard);
+							if (p1.getHP() <= 0) {
+								cout << "We're sorry, you have died!" << endl;
+								cout << "The game has now ended, but you can always restart!" << endl;
+								loop = false;
+								dead = true;
+							}
 					 		break;
 						}//These brackets are here to ger around the 
 						 //"Transfer of control bypasses intitalization of variable e1"
@@ -346,6 +358,10 @@ void game(player& p1, scoreboard& p1Scoreboard, fileOperations& files) {
 				case 'm': //The user access a pause menu
 					p1Scoreboard.setPos(playGame.getCurrentPos());
 					playerOptions(p1, files, p1Scoreboard);
+					if (p1.getHP() <= 0) {
+						loop = false;
+						dead = true;
+					}
 					break;
 				default:
 					cout << "That wasn't a valid option, please try again.";
@@ -357,7 +373,9 @@ void game(player& p1, scoreboard& p1Scoreboard, fileOperations& files) {
 		
 		//user has died
 		if (p1.getHP() <= 0) {
-			cout << "We're sorry that the game is over for you. You're more than able go and restart it!" << endl;
+			if (dead == false) {
+				cout << "We're sorry that the game is over for you. You're more than able go and restart it!" << endl;
+			}
 		}
 		else {
 			//Increases the floor count by 1
@@ -403,6 +421,31 @@ void game(player& p1, scoreboard& p1Scoreboard, fileOperations& files) {
 	//cout << Alex << endl;
 	//weapon sword;
 
+}
+
+void alphabeticalScore(fileOperations& files, player& p1, scoreboard& p1Scoreboard) {
+	vector<string> names;
+	vector<string> scores;
+	names = files.getNames(p1Scoreboard, p1);
+	scores = files.getScores(p1Scoreboard, p1);
+	int min_idx;
+	for (int i = 0; i < (names.size() - 1); i++) {
+		min_idx = i;
+		for (int j = i + 1; j < names.size(); j++)
+			if (names[j] < names[min_idx])
+				min_idx = j;
+		string stemp = scores[min_idx];
+		string ntemp = names[min_idx];
+		scores[min_idx] = scores[i];
+		names[min_idx] = names[i];
+		scores[i] = stemp;
+		names[i] = ntemp;
+	}
+	cout << "Scoreboard: \n";
+	for (int i=0; i < names.size(); i++) {
+		cout << "Name: " << setw(16) << left << names[i]
+			 << "Score: " << setw(10) << left << scores[i] << endl;
+	}
 }
 
 
@@ -481,4 +524,18 @@ int main() {
 	//We clear the screen
 	cout << "\033[2J\033[1;1H";
 	game(p1, p1Scoreboard, files);
+	files.save2File(p1Scoreboard, p1);
+	cout << "OPTION: Would you like to view the scoreboard in alphabetical order?(Y/N)\n";
+	char choice;
+	cin >> choice;
+	switch (choice) {
+		case 'n':
+			cout << "End of game. Thank you for playing.";
+			break;
+		case 'y':
+			alphabeticalScore(files, p1, p1Scoreboard);
+			break;
+		default:
+			cout << "That wasn't an option!" << endl;
+	}
 }

@@ -69,9 +69,6 @@ bool player::modHealth(int input) {
     if (healthPoints > maxHealth)
         healthPoints = maxHealth;
     if (healthPoints <= 0) {
-        cout << "We're sorry, you have died!" << endl;
-        cout << "The game has now ended, but you can always restart!" << endl;
-        exit (0);
         return false;
     }
     return true;

@@ -1,3 +1,5 @@
-﻿  main.cpp
-C:\Users\derri\Desktop\New folder\Midterm Project\Midterm Project\main.cpp(183,16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+﻿  fileOperations.cpp
+  main.cpp
+C:\Users\derri\Desktop\New folder\Midterm Project\Midterm Project\main.cpp(188,16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
   Midterm Project.vcxproj -> C:\Users\derri\Desktop\New folder\Midterm Project\x64\Debug\Midterm Project.exe

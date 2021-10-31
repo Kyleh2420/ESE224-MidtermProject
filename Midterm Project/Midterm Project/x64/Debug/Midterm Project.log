@@ -1,3 +1,3 @@
 ﻿  main.cpp
-D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\Midterm Project\main.cpp(181,16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  Midterm Project.vcxproj -> D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\x64\Debug\Midterm Project.exe
+C:\Users\derri\Desktop\New folder\Midterm Project\Midterm Project\main.cpp(183,16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Midterm Project.vcxproj -> C:\Users\derri\Desktop\New folder\Midterm Project\x64\Debug\Midterm Project.exe

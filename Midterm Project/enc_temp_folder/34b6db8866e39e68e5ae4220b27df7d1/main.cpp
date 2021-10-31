@@ -72,7 +72,7 @@ void weaponsShop(player& p1) {
 		cin >> selection;
 //If the user's selection is 0, then we know to exit the loop
 		if (selection >= 16) {
-			cout << "Sorry, " << selection << " is an invalid choice\n";
+			cout << "Sorry, " << selection << "is an invalid choice";
 		}else if (selection == 0) { //this part breaks if a random input that is not a numbe is chosen
 			loop = false;
 //Otherwise, let's check if the user can actually buy the item. If they can, then prompt them to ensure their purchase is correct

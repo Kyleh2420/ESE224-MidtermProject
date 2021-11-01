@@ -10,7 +10,7 @@ private:
 	string commentsFileName;
 	fstream commentsFile;
 
-	int hpChange, balChange, selector;
+	int selector;
 	string line;
 
 public:

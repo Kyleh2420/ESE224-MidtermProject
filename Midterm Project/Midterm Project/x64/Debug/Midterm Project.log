@@ -1,2 +1,8 @@
+<<<<<<< HEAD
 ﻿  weapon.cpp
   Midterm Project.vcxproj -> D:\Stony Brook University\2 - Sophomore Year\ESE 224\MidtermProject\Midterm Project\x64\Debug\Midterm Project.exe
+=======
+﻿  main.cpp
+C:\Users\vince\source\repos\ESE224-MidtermProject\Midterm Project\Midterm Project\main.cpp(190,16): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Midterm Project.vcxproj -> C:\Users\vince\source\repos\ESE224-MidtermProject\Midterm Project\x64\Debug\Midterm Project.exe
+>>>>>>> 3817d55e443c6cd96cd49b8d76dd2f0063be1c28

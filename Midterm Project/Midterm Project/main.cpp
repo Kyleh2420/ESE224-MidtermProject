@@ -168,13 +168,13 @@ void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
 				//We need an ifstatement to see if the damage that the player does is way above the enemys HP.
 				//If it is, then only add the rest of the player's HP and kill the enemy
 				if (e1.getHP() <= p1.getDMG()) {
-					p1.modBal(e1.getHP());
+					p1.modBal(e1.getMaxHP());
 					p1Scoreboard.addScore(1);
 					cout << "The enemy has died!"
 						<< "\nYou have earned " << e1.getMaxHP() << " coins." << endl;
 					loop = false;
 				} else {
-					p1.modBal(p1.getDMG());
+					//p1.modBal(p1.getDMG());
 					cout << "You attacked the enemy, -" << p1.getDMG() << endl;
 					loop = enemyCombat(e1, p1, p1Scoreboard);
 				}

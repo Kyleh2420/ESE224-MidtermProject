@@ -23,7 +23,7 @@ void scoreboard::setPos(int input) {
 int scoreboard::getScore() {
     return sbScore;
 }
-int scoreboard::getDiff() {
+int scoreboard::getDiff () {
     return sbDifficulty;
 }
 int scoreboard::getFloor() {

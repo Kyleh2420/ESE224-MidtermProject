@@ -174,7 +174,7 @@ void playerCombat(player& p1, enemy& e1, scoreboard& p1Scoreboard) {
 						<< "\nYou have earned " << e1.getMaxHP() << " coins." << endl;
 					loop = false;
 				} else {
-					p1.modBal(p1.getDMG());
+					//p1.modBal(p1.getDMG());
 					cout << "You attacked the enemy, -" << p1.getDMG() << endl;
 					loop = enemyCombat(e1, p1, p1Scoreboard);
 				}
